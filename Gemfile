@@ -12,7 +12,11 @@ group :test, :development do
   gem "rspec-rails", "~> 2.6"
   gem 'guard'
   gem 'guard-rspec'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
 end
+
+gem 'pry-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
