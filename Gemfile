@@ -10,10 +10,14 @@ gem 'backbone-on-rails'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
+  gem 'growl'
   gem 'guard'
   gem 'guard-rspec'
   gem 'capybara-webkit'
   gem 'database_cleaner'
+  gem 'jasmine'
+  gem 'jasmine-headless-webkit', :git => 'git://github.com/johnbintz/jasmine-headless-webkit.git', :branch => 'master'
+  gem 'guard-jasmine-headless-webkit', :git => 'git://github.com/johnbintz/guard-jasmine-headless-webkit.git', :branch => 'master'
 end
 
 gem 'pry-rails'
@@ -22,7 +26,7 @@ gem 'squeel'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+#  gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'less-rails-bootstrap'
 
