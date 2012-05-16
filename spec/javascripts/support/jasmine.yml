@@ -4,7 +4,7 @@ helpers:
   - helpers/**/*
 spec_files:
   - "**/*_spec.*"
-src_dir: 
+src_dir:
   - app/assets/javascripts
-  - app/assets/templates
+  - app/assets/templates 
 spec_dir: spec/javascripts

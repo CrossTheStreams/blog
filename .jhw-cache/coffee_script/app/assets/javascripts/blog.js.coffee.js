@@ -7,7 +7,9 @@
     Routers: {},
     init: function() {
       new Blog.Routers.Posts;
-      return Backbone.history.start();
+      return Backbone.history.start({
+        pushState: true
+      });
     }
   };
 

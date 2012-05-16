@@ -2,11 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
 gem 'backbone-on-rails'
+gem 'haml'
+gem 'haml-rails'
+gem 'spork-rails'
+gem 'factory_girl_rails'
+gem 'RedCloth'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
@@ -18,6 +20,7 @@ group :test, :development do
   gem 'jasmine'
   gem 'jasmine-headless-webkit', :git => 'git://github.com/johnbintz/jasmine-headless-webkit.git', :branch => 'master'
   gem 'guard-jasmine-headless-webkit', :git => 'git://github.com/johnbintz/guard-jasmine-headless-webkit.git', :branch => 'master'
+  gem 'jasmine-spec-extras', :git => 'https://github.com/johnbintz/jasmine-spec-extras.git', :branch => 'master'
 end
 
 gem 'pry-rails'
@@ -26,7 +29,6 @@ gem 'squeel'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-#  gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'less-rails-bootstrap'
 
