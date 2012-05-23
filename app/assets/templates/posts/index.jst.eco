@@ -1,7 +1,10 @@
-<h1>Posts</h1>
-
 <% for post in @posts.models: %>
-  <h2><%= post.get('title') %> </h2>
-  <p><%= post.get('content') %></p>
+  <div class="title-and-date">
+    <h1><%= post.get('title') %> </h1>
+    <h3><%= post.get('created_at') %></h3>
+  </div>
+  <div>
+    <%- post.get('content') %>
+  </div>
 <% end %>
 

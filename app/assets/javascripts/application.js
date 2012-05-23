@@ -5,6 +5,10 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require bootstrap-carousel
+//= require bootstrap-dropdown
+//= require bootstrap-transition
+//= require bootstrap-typeahead
 
 //= require blog
 

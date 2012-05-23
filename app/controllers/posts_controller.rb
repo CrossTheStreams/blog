@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
   respond_to :json
+  module Options
+    
+
+  end
 
   def index
-    respond_with Post.last(5)
+    respond_with Post.all
   end
 
   def show

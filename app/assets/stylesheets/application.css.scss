@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+$iconSpritePath: image-path('glyphicons-halflings.png');
+$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+$navbarBackground: #555;
+$navbarBackgroundHighlight: #888;
+$navbarText: #eee;
+$navbarLinkColor: #eee;
+$navbarHeight: 50px;
+
+@import "bootstrap";
+
+body { padding-top: 30px; }
+
+@import "bootstrap-responsive";
+
+.navbar .brand {
+  color: #FAFFB8;
+}
+
+.navbar-inner {
+  .container{
+    a {
+
+    }
+  }
+}
+
+.navbar-inner {
+  form {
+    input {
+      width:220px;
+    }
+  }
+}
+
+.jumbotron {
+  height: 50px;
+  margin: 10px;
+}
+.jumbotron h1 {
+  font-size: 50px;
+  font-weight: bold;
+}

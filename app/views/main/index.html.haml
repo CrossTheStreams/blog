@@ -1,17 +1,6 @@
-.container
-  %header{:class => "jumbotron subhead"}
-    %h1 Header
-  .nav-collapse.collapse
-    .navbar
-      .navbar-inner
-        .container
-          %ul{:class => "nav"}
-            %li{:class => "active"}
-              %a{:href => "#"} Home
-            %li
-              %a{:href => "#"} This Other Thing
-  .row.show-grid
-    .span9
-      #feed Loading...
-    .span3
-      #side-stuff
+.row.show-grid
+  .span5
+    #side-stuff
+  .span7
+    #feed
+      %h1 I'm fuzzy on the whole good#{request.fullpath} thing...
