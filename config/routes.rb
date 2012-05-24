@@ -1,10 +1,12 @@
 Blog::Application.routes.draw do
   
-  get "sessions/new", :as => :admin
-  get "assign-new-user" => "users#new", :as => :new_user
+  get "admin" => "sessions#new"
+  get "logout" => "sessions#destroy"
+  get "sign_up" => "users#new" 
+  resources :users
+  resources :sessions
 
-  match "admin" => "sessions#new"
-
+  
   scope "api" do
     resources :posts
   end
@@ -12,7 +14,6 @@ Blog::Application.routes.draw do
   root to: "main#index"
   match '*path', to: 'main#index'
 
-  resources :users
-  resources :sessions
+
 
 end

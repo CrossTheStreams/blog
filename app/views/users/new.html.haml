@@ -5,7 +5,7 @@
       .error_messages
         %h2 Form is invalid
         %ul
-          =for message in @user.errors.full_messages
+          -for message in @user.errors.full_messages
             =message
     %p
       =f.label :email
@@ -16,6 +16,6 @@
     %p
       =f.label :password_confirmation
       =f.password_field :password_confirmation
-    %p{ :class => "button"}
+    %p{ :class => "button" } 
       =f.submit
 
