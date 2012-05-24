@@ -7,20 +7,18 @@
     = csrf_meta_tags
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
   %body
-    #user_id
-      -if current_user
-        Logged in as #{current_user.email}
-        =link_to "Log out", log_out_path
-      -else
-        .container
-          =link_to "Sign up", new_user_path
-          =link_to "log in", admin_path
-      - flash.each do |name, msg|
-        =content_tag :div, msg, :id => "flash_#{name}"
     .container
       %header{:class => "jumbotron subhead"}
         %a{ :href => "http://www.whatdoyoumeanbad.com" }
           %h1 Cross the Streams 
+        #admin-nav
+          -if current_user
+            Logged in as #{current_user.email}
+            =link_to "Log out", log_out_path
+          -else
+            =link_to "log in", admin_path
+          - flash.each do |name, msg|
+            =content_tag :div, msg, :id => "flash_#{name}"
       .navbar
         .navbar-inner
           .container

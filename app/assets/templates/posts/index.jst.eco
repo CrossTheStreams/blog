@@ -5,6 +5,7 @@
   </div>
   <div>
     <%- post.get('content') %>
+    <p class="elipse" ><strong>...</strong></p>
   </div>
 <% end %>
 
