@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   attr_accessible :public, :title, :content
 
   def as_json(options={})
-    super(:only => [:title, :content, :created_at])
+    super(:only => [:id, :title, :content, :created_at])
   end
 
 end

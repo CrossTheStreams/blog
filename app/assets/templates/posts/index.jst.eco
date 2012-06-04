@@ -1,6 +1,6 @@
 <% for post in @posts.models: %>
   <div class="title-and-date">
-    <h1><a href="#posts/<%= post.id %>"><%= post.get('title') %></a></h1>
+    <h1><a href="/posts/<%= post.get('id') %>"><%= post.get('title') %></a></h1>
     <h3><%= post.get('created_at') %></h3>
   </div>
   <div>
