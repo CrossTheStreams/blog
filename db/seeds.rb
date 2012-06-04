@@ -10,5 +10,53 @@
 
 #Post.create!(title: "Second Post", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
 
-Post.create!(title: "Fourth Post", content: '<h1>The thing about kale chips.</h1>
-<p>Kale chips seitan viral <a href="#">pour-over sustainable cred, art party leggings </a> selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger <strong>bag small batch. Keytar twee ethnic,</strong> synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.</p>')
+#Post.create!(title: "Fourth Post", content: '<h1>The thing about kale chips.</h1>
+#<p>Kale chips seitan viral <a href="#">pour-over sustainable cred, art party leggings </a> selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger <strong>bag small batch. Keytar twee ethnic,</strong> synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.</p>')
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+Post.create!(title: "Even More Posts!", content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.")
+
+Post.create!(title: "Even More Posts!", content: "Kale chips seitan viral pour-over sustainable cred, art party leggings selvage. Whatever butcher mcsweeney's american apparel hella portland. You probably haven't heard of them irony aesthetic street art DIY high life keytar messenger bag small batch. Keytar twee ethnic, synth bespoke high life you probably haven't heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.")
+
+
+
+

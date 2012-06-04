@@ -12,5 +12,7 @@ class Blog.Routers.Posts extends Backbone.Router
     $('#feed').html(view.render().el)
 
   show: (id) ->
-    alert "Post #{id}"
-    
+    post = new Blog.Models.Post id: id
+    view = new Blog.Views.PostsShow model: post
+    collection = new Blog.Collections.Posts [post]
+    post.fetch()

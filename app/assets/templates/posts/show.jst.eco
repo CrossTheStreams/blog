@@ -1,0 +1,8 @@
+  <div class="title-and-date">
+    <h1><%= @post.get('title') %></a></h1>
+    <h3><%= @post.get('created_at') %></h3>
+  </div>
+  <div>
+    <%- @post.get('content') %>
+  </div>
+

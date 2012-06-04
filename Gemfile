@@ -9,6 +9,7 @@ gem 'haml-rails'
 gem 'factory_girl_rails'
 gem 'RedCloth'
 gem 'devise'
+gem 'will_paginate', '~> 3.0'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
