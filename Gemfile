@@ -16,6 +16,9 @@ group :test, :development do
   gem 'growl'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'guard-jasmine'
+  gem 'jasmine-stories'
+  gem 'jasminerice'
   gem 'capybara-webkit'
   gem 'database_cleaner'
 end

@@ -8,14 +8,7 @@ spec_location = "spec/javascripts/%s_spec"
 
 # uncomment if you use NerdCapsSpec.js
 # spec_location = "spec/javascripts/%sSpec"
-
-guard 'jasmine-headless-webkit' do
-  watch(%r{^(app|lib|vendor)/assets/javascripts/(.*)$}) { |m| newest_js_file(spec_location % m[1]) }
-  watch(%r{^(app)/assets/templates/(.*)$}) { |m| newest_js_file(spec_location % m[1]) }
-  watch(%r{^spec/javascripts/(.*)[Ss]pec\..*}) { |m| newest_js_file(spec_location % m[1]) }
-end
-
-
+#
 guard 'rspec', :cli => "--color --format nested --fail-fast --drb" do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
@@ -32,3 +25,9 @@ guard 'rspec', :cli => "--color --format nested --fail-fast --drb" do
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
 
+
+guard 'jasmine' do
+  watch(%r{spec/javascripts/spec\.(js\.coffee|js|coffee)$})         { "spec/javascripts" }
+  watch(%r{spec/javascripts/.+_spec\.(js\.coffee|js|coffee)$})
+  watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)$})  { |m| "spec/javascripts/#{m[1]}_spec.#{m[2]}" }
+end
