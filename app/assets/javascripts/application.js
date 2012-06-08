@@ -9,7 +9,6 @@
 //= require bootstrap-dropdown
 //= require bootstrap-transition
 //= require bootstrap-typeahead
-
 //= require blog
 
 //= require_tree ../templates
