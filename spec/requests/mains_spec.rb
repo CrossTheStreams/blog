@@ -2,10 +2,12 @@ require 'spec_helper'
 
 describe "Main" do
   describe "GET /", :js => true do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+    it "has the first post" do
       get root_path
-      response.status.should be(200)
+      page.has_content?('First Post')
+    end
+    it "has exactly 10 posts" do
+      page.has_selector?('#post', :count => 10)
     end
   end
 end

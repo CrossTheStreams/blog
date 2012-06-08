@@ -22,7 +22,7 @@ RSpec.configure do |config|
 
   #Database cleaner config
 
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
