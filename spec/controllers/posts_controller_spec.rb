@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PostsController do
+describe PostsController do 
 
   describe "index action" do
     it "renders the index template" do
@@ -9,14 +9,14 @@ describe PostsController do
   end
 
   describe "show action" do
-    before(:each) do
-      @post = FactoryGirl.build_stubbed(:post)
-      Post.stub!(:find, @post.id).and_return(@post)
+
+    let(:post) { FactoryGirl.create(:post) } 
+    it "renders the right post" do
+      Post.stub(:find, post.id).and_return(post)
+      Post.should_receive(:find)
+      get :show, { :id => 1001, :format => :json }
+      response.body.should == post.to_json
     end
 
-    it "renders the right post" do
-      get :show, :id => 1001
-      response.body.should == @post.to_json
-    end
   end
 end

@@ -1,5 +1,3 @@
-require 'rubygems'
-
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -8,19 +6,22 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'database_cleaner'
 
-Capybara.javascript_driver = :webkit 
-
-
-
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
-  config.infer_base_class_for_anonymous_controllers = false
 
-  #Database cleaner config
+  Capybara.javascript_driver = :webkit
+  Capybara.default_wait_time = 2
+
+  # ## Mock Framework
+  #
+  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
+  #
+  # config.mock_with :mocha
+  # config.mock_with :flexmock
+  # config.mock_with :rr
 
   config.use_transactional_fixtures = false
 
@@ -37,5 +38,10 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  # If true, the base class of anonymous controllers will be inferred
+  # automatically. This will be the default behavior in future versions of
+  # rspec-rails.
+  
+  config.infer_base_class_for_anonymous_controllers = false 
 
 end

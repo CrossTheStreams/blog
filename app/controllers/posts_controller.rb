@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   respond_to :json
   module Options
-    
-
   end
 
   def index

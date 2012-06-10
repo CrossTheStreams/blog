@@ -3,12 +3,9 @@
 
 # Run JS and CoffeeScript files in a typical Rails 3.1/Sprockets fashion.
 # Your spec files end with _spec.{js,coffee}.
-
-spec_location = "spec/javascripts/%s_spec"
-
 # uncomment if you use NerdCapsSpec.js
 # spec_location = "spec/javascripts/%sSpec"
-#
+
 guard 'rspec', :cli => "--color --format nested --fail-fast --drb" do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
@@ -23,6 +20,7 @@ guard 'rspec', :cli => "--color --format nested --fail-fast --drb" do
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
+  watch(%r{^app/assets/templates/(.+)/.*\.(eco|haml)$}) { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
 
 

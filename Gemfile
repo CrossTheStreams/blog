@@ -6,7 +6,6 @@ gem 'pg'
 gem 'backbone-on-rails'
 gem 'haml'
 gem 'haml-rails'
-gem 'factory_girl_rails'
 gem 'RedCloth'
 gem 'devise'
 gem 'will_paginate', '~> 3.0'
@@ -21,6 +20,10 @@ group :test, :development do
   gem 'jasminerice'
   gem 'capybara-webkit'
   gem 'database_cleaner'
+end
+
+group :test do
+  gem 'factory_girl_rails'
 end
 
 gem 'pry-rails'
