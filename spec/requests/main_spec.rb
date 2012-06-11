@@ -2,13 +2,15 @@ require 'spec_helper'
 
 describe "Main" do
 
-  describe "GET /" do 
+  describe "GET /" do
+
+   before(:each) do
+     first_post = FactoryGirl.create(:firstpost)
+     other_posts = FactoryGirl.create_list(:post, 25)
+     visit root_path
+   end 
 
     it "has the first post", :js => true do
-      load "#{Rails.root}/db/seeds.rb"
-      binding.pry 
-      visit root_path
-      find(".post")
       page.should have_content('First Post')
     end
 
