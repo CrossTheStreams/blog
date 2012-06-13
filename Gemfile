@@ -20,10 +20,6 @@ group :test, :development do
   gem 'capybara-webkit'
 end
 
-group :test do
-  gem 'factory_girl_rails'
-end
-
 gem 'pry-rails'
 gem 'squeel'
 
