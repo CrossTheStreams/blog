@@ -2,30 +2,34 @@ require 'spec_helper'
 
 describe PostsController do 
 
+  binding.pry
+
+  fixtures :posts
+
+  posts = Post.all
+
+  binding.pry
+
+
   describe "index action" do
 
-    let!(:posts) { FactoryGirl.create_list(:post, 25) }
-
     it "renders the index template" do
-      get :index
+      get :index 
     end
 
     it "returns the first 5 posts" do
       get :index, :format => :json
-      response.body.should == posts[0..4].to_json
-      binding.pry
+      response.body.should == Post.all[0..4].to_json
     end
   end
 
   describe "show action" do
 
-    let(:post) { FactoryGirl.create(:post) }
+    fixtures :posts
 
     it "renders the right post" do
-      Post.stub(:find, post.id).and_return(post)
-      Post.should_receive(:find)
-      get :show, { :id => 1001, :format => :json }
-      response.body.should == post.to_json
+      get :show, { :id => 1, :format => :json }
+      response.body.should == Post.first.to_json
     end
 
   end

@@ -4,7 +4,6 @@ gem 'rails', '3.2.2'
 
 gem 'pg'
 gem 'backbone-on-rails'
-gem 'haml'
 gem 'haml-rails'
 gem 'RedCloth'
 gem 'devise'
@@ -33,8 +32,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'sass-rails', '~> 3.1'
   gem 'bootstrap-sass', '~> 2.0.3'
- # See https://github.com/sstephenson/execjs#readme for more supported runtimes
- # gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
 end
 
