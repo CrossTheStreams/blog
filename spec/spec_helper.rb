@@ -31,10 +31,8 @@ RSpec.configure do |config|
 
  Capybara.javascript_driver = :webkit
 
-  # If true, the base class of anonymous controllers will be inferred
-  # automatically. This will be the default behavior in future versions of
-  # rspec-rails.
-  config.fixture_path = "#{::Rails.root}/spec/fixtures" 
-  config.infer_base_class_for_anonymous_controllers = false 
+ config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+ config.infer_base_class_for_anonymous_controllers = false 
 
 end
