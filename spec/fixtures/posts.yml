@@ -2,34 +2,47 @@ first_post:
   id: 1
   title: "First Post!"
   content: "An excellent first post."
+  public: true
+
+unpublished_post:
+  id: 2
+  title: "Unpublished post"
+  content: "This Post should not be publically visible."
 
 post_2:
   title: "Another Post!"
   content: "Stuff blah blah blah"
+  public: true
 
 post_3:
   title: "Another Post!"
   content: "Stuff blah blah blah"
+  public: true
 
 post_4:
   title: "Another Post!"
   content: "Stuff blah blah blah"
+  public: true
 
 post_5:
   title: "Another Post!"
   content: "Stuff blah blah blah"
+  public: true
 
 post_6:
   title: "Another Post!"
   content: "Stuff blah blah blah"
+  public: true
 
 post_7:
   title: "Another Post!"
   content: "Stuff blah blah blah"
+  public: true
 
 post_8:
   title: "Another Post!"
   content: "Stuff blah blah blah"
+  public: true
 
 
 
