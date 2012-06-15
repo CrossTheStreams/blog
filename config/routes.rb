@@ -1,13 +1,14 @@
 Blog::Application.routes.draw do
-  
-  get "admin" => "sessions#new"
-  get "logout" => "sessions#destroy"
-  get "sign_up" => "users#new"
+ 
+  match "login" => "sessions#new"
 
   mount Jasminerice::Engine => "/jasmine"
 
   resources :users
-  resources :sessions
+
+  scope(:path_names => {:new => "login", :destroy => "logout"}) do
+    resources :sessions, :only => [:new, :destroy]
+  end
 
   
   scope "api" do
