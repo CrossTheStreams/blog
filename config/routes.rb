@@ -1,22 +1,26 @@
 Blog::Application.routes.draw do
- 
-  match "login" => "sessions#new"
 
-  mount Jasminerice::Engine => "/jasmine"
+  resources :tags
+
+  mount Jasminerice::Engine => '/jasmine'
+  
+  get 'signup', to: 'users#new', as: 'signup'
+  post 'signup', to: 'users#create', as: 'signup'
+
+
+  get 'login', to: 'sessions#new', as: 'login'
+  post 'login', to: 'sessions#create', as: 'login'
+
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :users
 
-  scope(:path_names => {:new => "login", :destroy => "logout"}) do
-    resources :sessions, :only => [:new, :destroy]
-  end
-
-  
-  scope "api" do
+  scope 'api' do
     resources :posts
   end
 
-  root to: "main#index"
+  root to: 'main#index'
 
-  match '*path', to: 'main#index'
+#  match '*path', to: 'main#index'
 
 end

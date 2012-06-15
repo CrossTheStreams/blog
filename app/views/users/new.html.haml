@@ -5,17 +5,21 @@
       .error_messages
         %h2 Form is invalid
         %ul
-          -for message in @user.errors.full_messages
-            =message
-    %p
-      =f.label :email
-      =f.text_field :email
-    %p
-      =f.label :password
-      =f.password_field :password
-    %p
-      =f.label :password_confirmation
-      =f.password_field :password_confirmation
-    %p{ :class => "button" } 
-      =f.submit
+          - @user.errors.full_messages.each do |message|
+            = message
+    .field
+      %p
+        =f.label :name
+        =f.text_field :name
+    .field
+      %p
+        =f.label :password
+        =f.password_field :password
+    .field
+      %p
+        =f.label :password_confirmation
+        =f.password_field :password_confirmation
+    .actions
+      %p{ :class => "button" } 
+        =f.submit
 
