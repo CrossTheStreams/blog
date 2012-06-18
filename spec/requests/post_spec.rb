@@ -4,6 +4,11 @@ describe 'Posts' do
 
   describe 'Showing Posts' do
 
+    fixtures :posts
+
+    it '' do
+    end
+
     describe 'Public Posts' do
     
       it 'should show a specific public post to a guest' do

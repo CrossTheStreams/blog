@@ -20,6 +20,14 @@ $navbarBackgroundHighlight: #888;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
 $navbarHeight: 50px;
+$linkColor: #333;
+$linkColorHover: #08C;
+
+p {
+ a{ 
+   color: #07C;
+ }
+}
 
 @import "bootstrap";
 
@@ -31,17 +39,13 @@ body { padding-top: 30px; }
   color: #FAFFB8;
 }
 
-.navbar-inner {
-  .container{
-    a {
-
-    }
-  }
-}
-
 #admin-nav {
  width:40px;
  float:right;
+}
+
+a:hover {
+  text-decoration:none;
 }
 
 .navbar-inner {

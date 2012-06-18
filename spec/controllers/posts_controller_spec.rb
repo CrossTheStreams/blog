@@ -2,14 +2,9 @@ require 'spec_helper'
 
 describe PostsController do 
 
-  binding.pry
-
   fixtures :posts
 
   posts = Post.all
-
-  binding.pry
-
 
   describe "index action" do
 

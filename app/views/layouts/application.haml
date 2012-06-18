@@ -7,19 +7,14 @@
     = csrf_meta_tags
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
   %body
-    -flash.each do |name, msg|
-      =content_tag :div, msg, :id => "flash#{name}"
     .container
       %header{:class => "jumbotron subhead"}
-        %a{ :href => "http://www.whatdoyoumeanbad.com" }
-          %h1 Cross the Streams 
+        %h1         
+          %a{ :href => root_path } Mah Blog 
         #admin-nav
           -if current_user
             Logged in as #{current_user.name}
             =link_to "Log out", logout_path
-          -else
-            =link_to "Log in", login_path
-
       .navbar
         .navbar-inner
           .container
@@ -37,6 +32,8 @@
                 %a{:href => "#"} Apps
               %li
                 %a{:href => "#"} Tunes
+      -flash.each do |name, msg|
+        =content_tag :div, msg, :id => "flash#{name}", :class => "alert"
       =yield
 
 

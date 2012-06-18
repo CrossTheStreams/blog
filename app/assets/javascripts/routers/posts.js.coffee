@@ -15,4 +15,5 @@ class Blog.Routers.Posts extends Backbone.Router
     post = new Blog.Models.Post id: id
     view = new Blog.Views.PostsShow model: post
     collection = new Blog.Collections.Posts [post]
-    post.fetch()
+    post.fetch(post.fetch({error: -> 
+      $('#feed').append('<h1>No Post Here!</h1>')}))
