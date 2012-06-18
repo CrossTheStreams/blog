@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    respond_with Post.paginate(:per_page => 5, :page => params[:page]) 
+    respond_with Post.list(params[:page])
   end
 
   def show
