@@ -29,7 +29,7 @@ RSpec.configure do |config|
 
  config.use_transactional_fixtures = true
 
-# Capybara.javascript_driver = :webkit
+ Capybara.javascript_driver = :webkit
 
  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

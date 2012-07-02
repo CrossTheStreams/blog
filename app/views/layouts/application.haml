@@ -4,17 +4,21 @@
     %title Blog  
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
+    = javascript_include_tag "d3.v2.min"
     = csrf_meta_tags
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
   %body
     .container
       %header{:class => "jumbotron subhead"}
-        %h1         
-          %a{ :href => root_path } Blog 
         #admin-nav
           -if current_user
-            Logged in as #{current_user.name}
-            =link_to "Log out", logout_path
+            %ul
+              %li 
+                Logged in as #{current_user.name}
+              %li
+                =link_to "Log out", logout_path
+        %h1         
+          %a{ :href => root_path } Blog  
       .navbar
         .navbar-inner
           .container

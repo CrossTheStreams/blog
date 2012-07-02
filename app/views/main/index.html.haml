@@ -1,6 +1,9 @@
 .row.show-grid
   .span7
     #feed
+      %h1 Nothing here...
   .span5
     #side-stuff
-      #tag-cloud
+      #bubble-cloud
+        -content_for :head do
+          =javascript_include_tag "bubble-chart"

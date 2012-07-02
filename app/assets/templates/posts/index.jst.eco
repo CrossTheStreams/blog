@@ -3,8 +3,7 @@
     <h1><a href="/posts/<%= post.get('id') %>"><%= post.get('title') %></a></h1>
     <h3><%= post.get('post_date') %></h3>
     <div class="content"><%- post.get('content') %></div>
-    <div class="tags"><p><strong>Tags:</strong></p>
-    </div>
+    <div class="tags"><p><strong>Tags:</strong></p></div>
   </div>
 <% end %>
 <% if @posts.models.length == 0: %>

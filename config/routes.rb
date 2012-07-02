@@ -1,12 +1,13 @@
 Blog::Application.routes.draw do
 
+  get "posts/new"
+  get "posts/edit"
+
+  get "admin/index"
+
   resources :tags
 
   mount Jasminerice::Engine => '/jasmine'
-  
-  get 'signup', to: 'users#new', as: 'signup'
-  post 'signup', to: 'users#create', as: 'signup'
-
 
   get 'login', to: 'sessions#new', as: 'login'
   post 'login', to: 'sessions#create', as: 'login'
@@ -20,6 +21,7 @@ Blog::Application.routes.draw do
   end
 
   root to: 'main#index'
-  match '*path', to: 'main#index'
+
+  match '*path' => redirect('/')
 
 end

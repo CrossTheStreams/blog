@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615073622) do
+ActiveRecord::Schema.define(:version => 20120628070039) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -21,15 +21,19 @@ ActiveRecord::Schema.define(:version => 20120615073622) do
     t.boolean  "public",     :default => false
   end
 
+  create_table "posts_tags", :id => false, :force => true do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
+  end
+
   create_table "tags", :force => true do |t|
-    t.string   "keyword"
-    t.integer  "color",      :default => 333333
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.integer "post_id"
+    t.string  "keyword"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

@@ -9,3 +9,7 @@ window.Blog =
 
 $(document).ready ->
   Blog.init()
+
+$('#tag-cloud').click (e) ->
+  e.preventDefault()
+  $(@).tab('show')

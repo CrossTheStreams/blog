@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_filter :authorize, only: [:edit, :update]
+  before_filter :authorize, only: [:update]
 
   respond_to :json
   module Options

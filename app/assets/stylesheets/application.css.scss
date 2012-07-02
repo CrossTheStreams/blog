@@ -43,9 +43,11 @@ body { padding-top: 30px; }
   color: #FAFFB8;
 }
 
-#admin-nav {
- width:40px;
- float:right;
+header{
+   #admin-nav {
+   width:200px;
+   float:right;
+  }
 }
 
 a:hover {
@@ -59,7 +61,11 @@ a:hover {
     }
   }
 }
-
+#admin-nav {
+  ul {
+      list-style-type: none;
+  }
+}
 .jumbotron {
   height: 50px;
   margin: 10px;
