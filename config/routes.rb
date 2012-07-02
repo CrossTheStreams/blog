@@ -20,6 +20,8 @@ Blog::Application.routes.draw do
     resources :posts
   end
 
+  get "page/:id" => 'main#index'
+
   root to: 'main#index'
 
   match '*path' => redirect('/')
