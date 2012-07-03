@@ -3,7 +3,7 @@ Blog::Application.routes.draw do
   get "posts/new"
   get "posts/edit"
 
-  get "admin/index"
+  get "admin" => "admin#index"
 
   resources :tags
 
@@ -24,6 +24,6 @@ Blog::Application.routes.draw do
 
   root to: 'main#index'
 
-  match '*path' => redirect('/')
+  match '*path' => 'main#index' 
 
 end

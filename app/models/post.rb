@@ -15,6 +15,10 @@ class Post < ActiveRecord::Base
   def as_json(options={})
     super(:only => [:id, :title, :content, :post_date])
   end
+
+  def self.page_count
+    Post.where(:public => true).count/5
+  end
    
   def self.list(page)
     Post.where(:public => true).paginate(:per_page => 5, :page => page).map do |p|  

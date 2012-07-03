@@ -12,6 +12,7 @@
  *= require_tree .
 */
 
+
 $iconSpritePath: image-path('glyphicons-halflings.png');
 $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 
@@ -42,6 +43,13 @@ body { padding-top: 30px; }
 .navbar .brand {
   color: #FAFFB8;
 }
+
+.nav {
+  li {
+    margin-right:30px;
+  }
+}
+
 
 header{
    #admin-nav {
@@ -74,4 +82,14 @@ a:hover {
 .jumbotron h1 {
   font-size: 50px;
   font-weight: bold;
+}
+
+#side-stuff{
+  position:fixed;
+  .pagination {
+    margin-left:20%;
+    a {
+      border-width:1px;
+    }
+  }
 }

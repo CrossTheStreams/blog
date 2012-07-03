@@ -33,9 +33,10 @@
               %li
                 %a{:href => "#"} Blog
               %li
-                %a{:href => "#"} Apps
+                %a{:href => "#"} Static 1
               %li
-                %a{:href => "#"} Tunes
+                %a{:href => "#"} Static 2
+    .container
       -flash.each do |name, msg|
         =content_tag :div, msg, :id => "flash#{name}", :class => "alert"
       =yield
