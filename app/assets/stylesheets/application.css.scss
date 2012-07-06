@@ -87,8 +87,11 @@ a:hover {
 #side-stuff{
   position:fixed;
   .pagination {
-    margin-left:20%;
+    margin: 0px;
+    width:400px;
+    float:right;
     a {
+      margin:5px;
       border-width:1px;
     }
   }
