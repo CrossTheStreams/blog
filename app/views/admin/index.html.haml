@@ -8,9 +8,11 @@
           %th Title
           %th Tags
       %tbody
-        %tr 
-          %td
-          %td
-          %td
-          %td
-          %td
+        -@posts.map do |p|
+          %tr
+            %td 
+              = p[:id]
+            %td 
+              = p[:title]
+            %td 
+              = p[:tags]
