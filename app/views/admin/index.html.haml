@@ -7,12 +7,15 @@
           %th ID
           %th Title
           %th Tags
+          %th Published?
       %tbody
         -@posts.map do |p|
           %tr
             %td 
-              = p[:id]
+              %span #{p[:id]}
             %td 
-              = p[:title]
+              %span #{p[:title]}
             %td 
-              = p[:tags]
+              %span.keywords #{list_keywords(p[:tags])}
+            %td
+              = published?(p[:public])

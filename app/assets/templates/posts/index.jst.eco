@@ -1,7 +1,7 @@
 <% for post in @posts.models: %>
   <div class="post" id="post-<%= post.get('id') %>">
     <h1><a href="/posts/<%= post.get('id') %>"><%= post.get('title') %></a></h1>
-    <div class="tags"><strong>Tags:</strong></div>
+    <div class="tags"><strong>Tags:</strong> <%= post.get('tags').map (d) -> " " + d.keyword %></div>
     <h3><%= post.get('post_date') %></h3>
     <div class="content"><%- post.get('content') %></div>
   </div>
