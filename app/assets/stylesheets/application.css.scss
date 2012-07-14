@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
 */
 
 
@@ -82,19 +81,4 @@ a:hover {
 .jumbotron h1 {
   font-size: 50px;
   font-weight: bold;
-}
-
-#side-stuff{
-  position:fixed;
-  .pagination {
-    margin: 0px;
-    width:400px;
-    a {
-    }
-    ul {
-      -moz-box-shadow: none;
-      box-shadow: none;
-      -webkit-box-shadow: none;
-    }
-  }
 }

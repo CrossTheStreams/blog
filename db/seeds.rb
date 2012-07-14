@@ -59,3 +59,9 @@ Post.create!(title: "Even More Posts!",
              tags: Tag.where(:keyword => ["Photos", "Code"])
             )
 
+Post.create!(title: "Even More Posts!", 
+             content: "Single-origin coffee 8-bit mustache master cleanse. Photo booth odd future seitan, mustache pinterest banh mi aesthetic twee put a bird on it truffaut. Pickled jean shorts godard art party iphone, blog pitchfork cliche vice marfa shoreditch.",
+             public:true,
+             tags: Tag.where(:keyword => ["Ruby", "Music"])
+            )
+

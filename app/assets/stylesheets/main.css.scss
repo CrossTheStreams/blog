@@ -3,5 +3,17 @@
 // Set the correct sprite paths
 
 #side-stuff {
-  width:380px; 
+  width:380px;
+  position:fixed;
+    .pagination {
+      margin: 0px;
+      width:400px;
+      a {
+        }
+      ul {
+        -moz-box-shadow: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+      }
+    } 
 }
