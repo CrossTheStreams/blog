@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.2'
 
 gem 'pg'
+gem 'texticle'
 gem 'backbone-on-rails'
 gem 'haml-rails'
 gem 'RedCloth'
