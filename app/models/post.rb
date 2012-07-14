@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  include TagHelpers 
+  include TagsHelper 
   attr_accessor :post_date
 
   after_initialize do 
