@@ -27,8 +27,7 @@ ActiveRecord::Schema.define(:version => 20120628070039) do
   end
 
   create_table "tags", :force => true do |t|
-    t.integer "post_id"
-    t.string  "keyword"
+    t.string "keyword"
   end
 
   create_table "users", :force => true do |t|

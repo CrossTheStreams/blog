@@ -1,6 +1,7 @@
 .row.show-grid
   .span7
     %h1 Blog Admin
+    %br
     %table.table.table-bordered.table-striped
       %thead
         %tr
@@ -8,6 +9,7 @@
           %th Title
           %th Tags
           %th Published?
+          %th Options
       %tbody
         -@posts.map do |p|
           %tr
