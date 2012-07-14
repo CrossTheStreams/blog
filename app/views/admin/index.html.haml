@@ -21,3 +21,7 @@
               %span.keywords #{list_keywords(p[:tags])}
             %td
               = published?(p[:public])
+            %td
+  -content_for :head do
+    =javascript_include_tag "bootstrap-modal"
+

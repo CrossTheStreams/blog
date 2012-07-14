@@ -90,7 +90,11 @@ a:hover {
     margin: 0px;
     width:400px;
     a {
-      border-width:1px;
+    }
+    ul {
+      -moz-box-shadow: none;
+      box-shadow: none;
+      -webkit-box-shadow: none;
     }
   }
 }
