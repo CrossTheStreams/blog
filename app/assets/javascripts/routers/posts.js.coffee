@@ -27,12 +27,18 @@ class Blog.Routers.Posts extends Backbone.Router
     if pageNumber == 1
        @navigate("") 
        $(".a")[0].style.borderLeftWidth = "1px"
+       links.each (i, a) -> 
+         a.href = '/page/' + (pageNumber)
     if pageNumber > 2
       link_num = pageNumber - 2
       $('#3').addClass('active')
+      links.each (i, a) -> 
+        a.href = '/page/' + (pageNumber - i)
     else 
       link_num = 1
       $('#' + pageNumber).addClass('active')
+      links.each (i, a) -> 
+        a.href = '/page/' + (pageNumber - i)
     for link in links
       link.textContent = link_num + _i
     $('#next').attr('href', (pageNumber + 1))
@@ -42,19 +48,25 @@ class Blog.Routers.Posts extends Backbone.Router
     post = new Blog.Models.Post id: id
     view = new Blog.Views.PostsShow model: post
     collection = new Blog.Collections.Posts [post]
-    post.fetch(post.fetch({error: -> 
-      $('#feed').append('<h1>No Post Here!</h1>')}))
+    post.fetch(post.fetch())
     links = $('.a')
     postNumber = parseInt(id)
     if postNumber == 1
+      $(".a")[0].style.borderLeftWidth = "1px"
       $('#prev').css('visibility','hidden')
       $('#1').addClass('active')
+      links.each (i, a) -> 
+         a.href = '/post/' + (postNumber)
     if postNumber > 2
       link_num = postNumber - 2
       $('#3').addClass('active')
+      links.each (i, a) -> 
+        a.href = '/post/' + (postNumber - i)
     else
       link_num = 1
       $('#' + postNumber).addClass('active')
+      links.each (i, a) -> 
+        a.href = '/post/' + (postNumber - i)
     for link in links
       link.textContent = link_num + _i
     $('#next').attr('href', (postNumber + 1))
