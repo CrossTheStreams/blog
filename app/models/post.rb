@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
   end
    
   def self.list(page)
-    Post.where(:public => true).paginate(:per_page => 5, :page => page).map do |p|  
+    Post.paginate(:per_page => 5, :page => page).where(:public => true).order('id DESC').map do |p|  
        { 
          :id => p.id,
          :post_date => p.post_date,
