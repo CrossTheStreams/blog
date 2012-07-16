@@ -34,7 +34,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.admin_list(page)
-    Post.paginate(:per_page => 20, :page => page).map do |p|  
+    Post.paginate(:per_page => 20, :page => page).order('id DESC').map do |p|  
        { 
          :id => p.id,
          :post_date => p.post_date,

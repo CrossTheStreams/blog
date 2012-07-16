@@ -1,8 +1,5 @@
 Blog::Application.routes.draw do
 
-  get "posts/new"
-  get "posts/edit"
-
   get "admin" => "admin#index"
 
   resources :tags

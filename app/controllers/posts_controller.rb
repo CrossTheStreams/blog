@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   
   before_filter :authorize, only: [:update]
 
-  respond_to :json
+  respond_to :json, :html
   module Options
   end
 
@@ -25,5 +25,13 @@ class PostsController < ApplicationController
   def destroy
     respond_with Post.destroy(params[:id])
   end
-  
+
+  def edit
+    respond_with @post = Post.find(params[:id])
+  end
+
+  def new
+    respond_with @post = Post.new 
+  end
+
 end

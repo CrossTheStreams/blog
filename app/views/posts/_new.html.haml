@@ -1,0 +1,17 @@
+#new-modal.modal.hide.fade.in
+  .modal-header
+    %button.close{:type => "button", :"data-dismiss" => "modal"}
+    %h3 New Post 
+  .modal-body
+    =form_tag '/posts'
+    =label_tag 'title'
+    =text_field_tag 'new-title', nil,  :size => 30
+    =label_tag 'content'
+    =text_area_tag 'new-content', nil, :size => '50x10'
+    =label_tag 'tags'
+    =text_field_tag 'new-tags', nil, :id => 'tags-field', :size => '50x1'
+  .modal-footer
+    %a.btn{:href => "#", :data => {:dismiss => "modal"}} Close
+    %a.btn.btn-primary{:href => "#"} Submit 
+
+

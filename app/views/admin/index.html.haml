@@ -1,11 +1,13 @@
 .row.show-grid
   .span7
-    %h1 Blog Admin
+    #admin-title.span7
+      %h1 Blog Admin
+      %button#new-btn.btn New Post
     %br
     %table.table.table-bordered.table-striped
       %thead
         %tr
-          %th ID
+          %th Post #
           %th Title
           %th Tags
           %th Published?
@@ -22,6 +24,5 @@
             %td
               = published?(p[:public])
             %td
-  -content_for :head do
-    =javascript_include_tag "bootstrap-modal"
-
+= render :partial => "posts/new", :locals => {:post => @post} 
+= render :partial => "posts/edit", :locals => {:post => @post}
