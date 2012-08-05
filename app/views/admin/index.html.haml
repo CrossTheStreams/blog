@@ -2,27 +2,25 @@
   .span7
     #admin-title.span7
       %h1 Blog Admin
-      %button#new-btn.btn New Post
-    %br
+      %button#new-btn.btn{:type => "button"} New Post
+      %br
     %table.table.table-bordered.table-striped
       %thead
         %tr
-          %th Post #
+          %th Date Published
           %th Title
-          %th Tags
-          %th Published?
+          %th Keywords
           %th Options
       %tbody
+        -#-binding.pry
         -@posts.map do |p|
           %tr
             %td 
-              %span #{p[:id]}
+              %span #{p[:date_published]}
             %td 
               %span #{p[:title]}
             %td 
-              %span.keywords #{list_keywords(p[:tags])}
-            %td
-              = published?(p[:public])
+              =p[:keywords].map {|k| k.name}.join(", ") 
             %td
 = render :partial => "posts/new", :locals => {:post => @post} 
 = render :partial => "posts/edit", :locals => {:post => @post}

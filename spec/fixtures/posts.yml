@@ -2,7 +2,7 @@ first_post:
   id: 1
   title: "First Post!"
   content: "An excellent first post."
-  public: true
+  published: true
 
 unpublished_post:
   id: 2
@@ -12,37 +12,37 @@ unpublished_post:
 post_2:
   title: "Another Post!"
   content: "Stuff blah blah blah"
-  public: true
+  published: true
 
 post_3:
   title: "Another Post!"
   content: "Stuff blah blah blah"
-  public: true
+  published: true
 
 post_4:
   title: "Another Post!"
   content: "Stuff blah blah blah"
-  public: true
+  published: true
 
 post_5:
   title: "Another Post!"
   content: "Stuff blah blah blah"
-  public: true
+  published: true
 
 post_6:
   title: "Another Post!"
   content: "Stuff blah blah blah"
-  public: true
+  published: true
 
 post_7:
   title: "Another Post!"
   content: "Stuff blah blah blah"
-  public: true
+  published: true
 
 post_8:
   title: "Another Post!"
   content: "Stuff blah blah blah"
-  public: true
+  published: true
 
 
 

@@ -1,7 +1,4 @@
 class Tag < ActiveRecord::Base
-
-  has_and_belongs_to_many :posts
-
-  validates_uniqueness_of :keyword
-
+  belongs_to :post
+  belongs_to :keyword
 end

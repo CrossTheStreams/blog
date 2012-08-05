@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http:#jashkenas.github.com/coffee-script/
 #= require bootstrap-modal
 
-$('button').on('click', -> $('#new-modal').modal('show'))
+$(document).ready ->
+  $('#new-btn').on('click', -> 
+    $('#new-modal').modal('show'))

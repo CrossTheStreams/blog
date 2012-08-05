@@ -4,7 +4,7 @@ describe "Admin Page" do
 
   describe "Post Tab" do
 
-    it "should display a table of posts with their public status" do
+    it "should display a table of posts with their published status" do
       pending
     end
 

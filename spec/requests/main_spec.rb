@@ -14,7 +14,7 @@ describe "Main" do
       page.should have_selector('.post', :count => 5)
     end
 
-   it "should only display public posts", :js => true do
+   it "should only display published posts", :js => true do
       find('.post')
       page.should_not have_content('Unpublished post')
     end

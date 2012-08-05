@@ -3,8 +3,6 @@
  "children": [
         {"keyword": "Music", "count": 9},
         {"keyword": "Code", "count": 8},
-        {"keyword": "Photos", "count": 5},
-        {"keyword": "Facts", "count": 1},
         {"keyword": "Cool", "count": 4},
         {"keyword": "Awesome", "count": 6},
         {"keyword": "Food", "count": 4},

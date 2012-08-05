@@ -8,11 +8,11 @@ describe 'Posts' do
 
     describe 'Public Posts' do
     
-      it 'should show a specific public post to a guest' do
+      it 'should show a specific published post to a guest' do
         pending
       end
 
-      it 'should show a specific public post to an admin too...' do 
+      it 'should show a specific published post to an admin too...' do 
         pending
       end
 

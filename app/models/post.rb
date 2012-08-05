@@ -1,34 +1,31 @@
 class Post < ActiveRecord::Base
-  include TagsHelper 
-  attr_accessor :post_date
+  include PgSearch 
+  pg_search_scope :search, against: [:title, :content], using: {tsearch: {dictionary: "english"}} 
 
-  after_initialize do 
-    @post_date = Time.new.strftime("%a %b %d %Y")
-  end
-
-  has_and_belongs_to_many :tags
+  has_many :tags
+  has_many :keywords, :through => :tags
 
   validates_presence_of :title
   validates_presence_of :content
 
-  attr_accessible :public, :title, :content, :post_date, :tags, :tag_ids
+  attr_accessible :published, :date_published, :title, :content, :date_published, :keywords
 
   def as_json(options={})
-    super(:only => [:id, :title, :content, :post_date])
+    super(:only => [:id, :title, :content, :date_published])
   end
 
   def self.page_count
-    Post.where(:public => true).count/5
+    Post.where(:published => true).count/5
   end
    
   def self.list(page)
-    Post.paginate(:per_page => 5, :page => page).where(:public => true).order('id DESC').map do |p|  
+    Post.paginate(:per_page => 5, :page => page).where(:published => true).order('id DESC').map do |p|  
        { 
          :id => p.id,
-         :post_date => p.post_date,
+         :date_published => p.date_published.strftime("%a %b %d %Y"),
          :title => p.title,
          :content => p.content,
-         :tags => p.tags 
+         :keywords => p.keywords
        }
     end
   end
@@ -37,13 +34,21 @@ class Post < ActiveRecord::Base
     Post.paginate(:per_page => 20, :page => page).order('id DESC').map do |p|  
        { 
          :id => p.id,
-         :post_date => p.post_date,
+         :date_published => p.date_published ? p.date_published.strftime("%a %b %d %Y") : "Unpublished",
          :title => p.title,
          :content => p.content,
-         :tags => p.tags,
-         :public => p.public
-       }
+         :keywords => p.keywords,
+         :published => p.published       }
     end
+  end
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+    
   end
 
 end
