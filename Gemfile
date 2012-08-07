@@ -22,6 +22,7 @@ group :test, :development do
 end
 
 gem 'pry-rails'
+gem 'pry-remote'
 gem 'squeel'
 
 

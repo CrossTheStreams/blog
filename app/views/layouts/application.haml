@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title Blog  
+    %title CrossTheStreams  
     = stylesheet_link_tag "application", controller_name, :media => "all"
     = javascript_include_tag "application", controller_name
     = javascript_include_tag "d3.v2.min"
@@ -17,19 +17,17 @@
                 Logged in as #{current_user.name}
               %li
                 =link_to "Log out", logout_path
-        %h1         
-          %a{ :href => root_path } Blog  
+        .title 
+          %h1
+            %a{ :href => root_path } CrossTheStreams  
       .navbar
         .navbar-inner
           .container
-            %a{ :class => "btn btn-navbar", :data => {:toggle => "collapse"}, :data => {:target => ".nav-collapse"} }
-              %span{ :class => "icon-bar" }
-              %span{ :class => "icon-bar" }
-              %span{ :class => "icon-bar" }
             %ul{:class => "nav"}
               %li
                 =form_tag('/search', :class => "navbar-search pull-right") 
-                =search_field_tag "search", nil, :type => "text", :class =>"search-query span2", :id => "blog-search", :placeholder => "Press 's' to search" 
+                =search_field_tag "search", nil, :type => "text", :class =>"search-query span2", :id => "blog-search", :placeholder => "Press 's' to search"
+            %ul{:class => "nav", :style => "width:450px"}
               %li
                 %a{:href => "#"} Blog
               %li

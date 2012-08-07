@@ -3,6 +3,7 @@ class Blog.Routers.Posts extends Backbone.Router
     '': 'index'
     'posts/:id': 'show'
     'page/:pageNumber': 'page'
+    'search/:query' : 'search'
 
   initialize: ->
     @collection = new Blog.Collections.Posts()
@@ -70,6 +71,15 @@ class Blog.Routers.Posts extends Backbone.Router
     for link in links
       link.textContent = link_num + _i
     $('#next').attr('href', (postNumber + 1))
+
+  search: (query) ->
+    collection = new Blog.Collections.Posts
+    collection.fetch({data: {search: query}})
+    view = new Blog.Views.PostsIndex(collection: collection)
+    $('#feed').html(view.render().el)
+
+
+
 
 
 

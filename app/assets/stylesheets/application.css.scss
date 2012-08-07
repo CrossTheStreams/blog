@@ -75,10 +75,18 @@ a:hover {
 }
 .jumbotron {
   height: 50px;
-  margin: 10px;
+  margin: 10px 0px 10px 0px;
   textcolor: $grayDarker;
 }
-.jumbotron h1 {
+.title h1 {
   font-size: 50px;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+  .title h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+}
+

@@ -1,8 +1,13 @@
 <div class="title-and-date">
   <h1><a href="/posts/<%= @post.get('id') %>"><%= @post.get('title') %></a></h1>
-  <div class="tags"><strong>Tags:</strong></div>
+  <div class="tags">
+    <strong>Tags:</strong>
+    <%= post.get('keywords').map (d) -> " " + d.name %>
+  </div>
   <h3><%= @post.get('post_date') %></h3>
 </div>
-<div><%- @post.get('content') %></div>
+<div>
+  <%- @post.get('content') %>
+</div>
 
 

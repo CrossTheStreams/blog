@@ -9,7 +9,7 @@ window.Blog =
 
 $(document).ready ->
   Blog.init()
-  input = document.getElementById('blog-search')
+  input = $('#blog-search')
   input.focus()
 
 $('#tag-cloud').click (e) ->

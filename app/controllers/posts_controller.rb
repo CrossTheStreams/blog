@@ -34,4 +34,8 @@ class PostsController < ApplicationController
     respond_with @post = Post.new 
   end
 
+  def search
+    respond_with Post.text_search(params[:search]) 
+  end
+
 end

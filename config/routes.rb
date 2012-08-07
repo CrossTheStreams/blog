@@ -11,7 +11,9 @@ Blog::Application.routes.draw do
   resources :users
 
   scope 'api' do
-    resources :posts
+    resources :posts do
+      get "/search/:query" => "posts#search"
+    end 
     resources :keywords
   end
 
