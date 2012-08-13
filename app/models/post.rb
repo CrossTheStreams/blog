@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   attr_accessible :published, :date_published, :title, :content, :date_published, :keywords
 
   def as_json(options={})
-    super(:only => [:id, :title, :content, :date_published])
+    super(:only => [:id, :title, :content, :date_published, :keywords])
   end
 
   def self.page_count
@@ -47,8 +47,17 @@ class Post < ActiveRecord::Base
       search(query)
     else
       scoped
-    end
-    
+    end 
+  end
+
+  def self.blog_search(query)
+    text_search = Post.text_search(query)
+    results = text_search.map {|p| {:id => p.id, 
+                                    :date_published => p.date_published,
+                                    :title => p.title,
+                                    :content => p.content,
+                                    :keywords => p.keywords}
+    }
   end
 
 end

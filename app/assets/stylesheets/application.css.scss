@@ -29,10 +29,6 @@ p {
  }
 }
 
-.post {
- border-bottom: 1px solid #eee
-}
-
 @import "bootstrap";
 
 body { padding-top: 30px; }
@@ -49,6 +45,9 @@ body { padding-top: 30px; }
   }
 }
 
+ul.nav {
+ width:270px;
+}
 
 header{
    #admin-nav {

@@ -1,3 +1,4 @@
+window.foo = "stupid"
 window.Blog =
   Models: {}
   Collections: {}
@@ -14,6 +15,6 @@ $(document).ready ->
 
 $('#tag-cloud').click (e) ->
   e.preventDefault()
-  $(@).tab('show')
+  $(@).tab('show') 
 
 

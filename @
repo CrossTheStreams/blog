@@ -4,7 +4,7 @@ class Blog.Routers.Posts extends Backbone.Router
     '': 'index'
     'posts/:id': 'show'
     'page/:pageNumber': 'page'
-    'search/:query' : 'search'
+    '/search/:query' : 'search'
 
   initialize: ->
     @collection = new Blog.Collections.Posts()

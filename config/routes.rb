@@ -1,6 +1,6 @@
 Blog::Application.routes.draw do
 
-  get "admin" => "admin#index"
+  get 'admin' => 'admin#index'
 
   mount Jasminerice::Engine => '/jasmine'
 
@@ -11,13 +11,13 @@ Blog::Application.routes.draw do
   resources :users
 
   scope 'api' do
-    resources :posts do
-      get "/search/:query" => "posts#search"
-    end 
+    resources :posts 
     resources :keywords
+    get '/posts/search/:query' => 'posts#search'
   end
 
-  get "page/:id" => 'main#index'
+  get 'page/:id' => 'main#index'
+  get 'search/:query' => 'main#search', :as => "search"
 
   root to: 'main#index'
 

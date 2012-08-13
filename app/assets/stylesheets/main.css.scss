@@ -1,13 +1,21 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // Set the correct sprite paths
+#feed {
+  min-width:60%;
+}
+
+.post {
+  margin-bottom: 25px;
+  line-height: 1.7em;
+  border-bottom: 1px solid #eee;
+}
 
 #side-stuff {
   width:380px;
   position:fixed;
     .pagination {
       margin: 0px;
-      width:400px;
       a {
         }
       ul {

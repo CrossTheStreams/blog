@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
       
-  var r = 420,
+  var r = 350,
       format = d3.format(",d"),
       fill = "#08C"
 
