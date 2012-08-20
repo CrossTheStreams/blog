@@ -4,7 +4,7 @@
       <strong>Tags:</strong>
       <%= @post.attributes.keywords.map (d) -> " " + d %>
     </div>
-    <h3><%= @post.get('post_date') %></h3>
+    <h3><%= @post.get('date_published') %></h3>
     <div><%- @post.get('content') %></div>
 </div>
 

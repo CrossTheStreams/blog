@@ -17,6 +17,7 @@ Blog::Application.routes.draw do
   end
 
   get 'page/:id' => 'main#index'
+  get 'search/:query' => 'main#search'
 
   root to: 'main#index'
 

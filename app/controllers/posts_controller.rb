@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params[:id])
-    render :json => {:id => post.id, :title => post.title, :content => post.content, :keywords => post.keywords.map {|k| k.name}}.to_json 
+    render :json => {:id => post.id, :title => post.title, :date_published => post.date_published.strftime("%a %b %d %Y"), :content => post.content, :keywords => post.keywords.map {|k| k.name}}.to_json 
   end
 
   def create
