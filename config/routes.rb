@@ -8,8 +8,6 @@ Blog::Application.routes.draw do
   post 'login', to: 'sessions#create', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users
-
   scope 'api' do
     resources :posts 
     resources :keywords
@@ -21,6 +19,6 @@ Blog::Application.routes.draw do
 
   root to: 'main#index'
 
-  match '*path' => 'main#index' 
+  match '*path' => redirect('/') 
 
 end

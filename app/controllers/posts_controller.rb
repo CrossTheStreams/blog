@@ -16,7 +16,23 @@ class PostsController < ApplicationController
   end
 
   def create
-    respond_with Post.create(params[:post])
+    if params[:post]
+      @post = Post.create(:title => params[:post][:title],
+                          :content => RedCloth.new(params[:post][:content]),
+                          :published => params[:post]["published"] == "1",
+                          :date_published => ((params[:post]["published"] == "1") ? DateTime.now : nil))
+      if params[:keywords]
+        names = params[:keywords].split(",").map {|n| n.lstrip!;n.rstrip!;n.capitalize!}
+        names.map do |name|
+          keyword = Keyword.find_or_create_by_name(:name => name)
+          tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => @post.id,
+                                                             :keyword_id => keyword.id)
+        end
+      end
+    end
+    if @post && @post.save
+      redirect_to admin_path
+    end
   end
 
   def update

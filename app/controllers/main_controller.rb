@@ -1,6 +1,7 @@
 class MainController < ApplicationController
   def index
     if params[:query]
+
       redirect_to '/search/' + params[:query] and return
     end
   end

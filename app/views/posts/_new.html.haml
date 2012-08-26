@@ -1,17 +1,20 @@
 #new-modal.modal.hide.fade.in
   .modal-header
-    %button.close{:type => "button", :"data-dismiss" => "modal"}
+    %button.close{:type => "button", :"data-dismiss" => "modal"}x
     %h3 New Post 
   .modal-body
-    =form_tag '/posts'
-    =label_tag 'title'
-    =text_field_tag 'new-title', nil,  :size => 30
-    =label_tag 'content'
-    =text_area_tag 'new-content', nil, :size => '50x10'
-    =label_tag 'tags'
-    =text_field_tag 'new-tags', nil, :id => 'tags-field', :size => '50x1'
-  .modal-footer
-    %a.btn{:href => "#", :data => {:dismiss => "modal"}} Close
-    %a.btn.btn-primary{:href => "#"} Submit 
+    =form_for @new_post do |f|
+      =f.label :title
+      =f.text_field :title
+      =f.label :content
+      =f.text_area :content, :placeholder => "Use Textile markup."
+      =f.label :tags
+      =text_field_tag 'keywords', nil, :placeholder => "Comma separated keywords for the post. Visualized on bubble charts."
+      %br
+      =f.label :publish, 'Publish?', :style => "float:left;margin-right:10px;"
+      =f.check_box :published
+      %p
+      =f.submit :class => "btn"
+
 
 
