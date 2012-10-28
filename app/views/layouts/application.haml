@@ -1,22 +1,23 @@
 !!! 5
 %html
   %head
-    %title CrossTheStreams  
-    = stylesheet_link_tag "application", controller_name, :media => "all"
+    %title CrossTheStreams 
+    = stylesheet_link_tag "application", controller_name
     = javascript_include_tag "application", controller_name
     = javascript_include_tag "d3.v2.min"
     = csrf_meta_tags
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
   %body
     .container
-      %header{:class => "jumbotron subhead"}
-        #admin-nav
-          -if current_user
-            %ul
-              %li 
-                Logged in as #{current_user.name}
-              %li
-                =link_to "Log out", logout_path
+      .white-div
+        %header{:class => "jumbotron subhead"}
+          #admin-nav
+            -if current_user
+              %ul
+                %li 
+                  Logged in as #{current_user.name}
+                %li
+                  =link_to "Log out", logout_path
         .title 
           %h1
             %a{ :href => root_path } CrossTheStreams  
@@ -34,7 +35,23 @@
                 %a{:href => "#"} Static 1
               %li
                 %a{:href => "#"} Static 2
-    .container
+            .pagination
+              %ul#pagination-li
+                %li
+                  %a#pre #{"<"}
+                %li#1
+                  %a.a{:href => '/page/1'} 1
+                %li#2
+                  %a.a{:href => '/page/2'} 2
+                %li#3
+                  %a.a{:href => '/page/3'} 3
+                %li#4
+                  %a.a{:href => '/page/4'} 4
+                %li#5
+                  %a.a{:href => '/page/1'} 5
+                %li
+                  %a#next #{">"}
+    #content.container
       -flash.each do |name, msg|
         =content_tag :div, msg, :id => "flash#{name}", :class => "alert"
       =yield

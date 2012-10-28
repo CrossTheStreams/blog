@@ -6,9 +6,13 @@
 }
 
 .post {
-  margin-bottom: 25px;
+  margin: 0px 0px 50px 0px;
   line-height: 1.7em;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #333333;
+}
+
+.post p {
+  margin-bottom: 50px;
 }
 
 #side-stuff {

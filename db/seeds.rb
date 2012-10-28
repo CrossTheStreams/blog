@@ -27,15 +27,12 @@ post2 = Post.create!(title: "Second Post",
              date_published: DateTime.now)
 
 post3 = Post.create!(title: "Third Post", 
-             content: RedCloth.new('h1. The thing about kale chips.
-
-             Kale chips seitan viral "pour-over sustainable cred, art party leggings":http:localhost:3000 selvage. Whatever butcher mcsweeneys american apparel hella portland. You probably haven&rsquo;t heard of them irony aesthetic street art DIY high life keytar messenger *bag small batch. Keytar twee ethnic,* synth bespoke high life you probably haven&rsquo;t heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.
-
+             content: RedCloth.new('Kale chips seitan viral "pour-over sustainable cred, art party leggings":http:localhost:3000 selvage. Whatever butcher mcsweeneys american apparel hella portland. You probably haven&rsquo;t heard of them irony aesthetic street art DIY high life keytar messenger *bag small batch. Keytar twee ethnic,* synth bespoke high life you probably haven&rsquo;t heard of them organic lo-fi fingerstache vinyl williamsburg hoodie.
               * unordered lists 
               * are the best, man
 
               # no
-              # ordered lists are number 1').to_html,
+              # ordered lists are number 1'),
              published: true,
              date_published: DateTime.now)
 

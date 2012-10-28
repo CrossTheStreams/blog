@@ -1,4 +1,3 @@
-window.foo = "stupid"
 window.Blog =
   Models: {}
   Collections: {}

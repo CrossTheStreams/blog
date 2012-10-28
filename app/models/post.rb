@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
          :id => p.id,
          :date_published => p.date_published.strftime("%a %b %d %Y"),
          :title => p.title,
-         :content => p.content,
+         :content => RedCloth.new(p.content).to_html,
          :keywords => p.keywords
        }
     end
@@ -38,7 +38,8 @@ class Post < ActiveRecord::Base
          :title => p.title,
          :content => p.content,
          :keywords => p.keywords,
-         :published => p.published       }
+         :published => p.published
+       }
     end
   end
 
@@ -51,13 +52,16 @@ class Post < ActiveRecord::Base
   end
 
   def self.blog_search(query)
-    text_search = Post.text_search(query)
-    results = text_search.map {|p| {:id => p.id, 
-                                    :date_published => p.date_published,
-                                    :title => p.title,
-                                    :content => p.content,
-                                    :keywords => p.keywords}
-    }
+    text_search = Post.text_search(query).select {|p| p.date_published}
+    results = text_search.map do |p|
+      { 
+        :id => p.id, 
+        :date_published => p.date_published.strftime("%a %b %d %Y"),
+        :title => p.title,
+        :content => RedCloth.new(p.content).to_html,
+        :keywords => p.keywords
+      }
+    end
   end
 
 end

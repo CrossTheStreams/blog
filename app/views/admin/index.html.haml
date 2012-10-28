@@ -10,7 +10,7 @@
           %th Date Published
           %th Title
           %th Keywords
-          %th Options
+          %th 
       %tbody
         -@posts.map do |p|
           %tr
@@ -21,5 +21,7 @@
             %td 
               =p[:keywords].map {|k| k.name}.join(", ") 
             %td
+              %button.btn.edit-btn{:id => "edit-#{p[:id]}", :type => "button"} Edit Post
+              %button.btn.edit-btn{:id => "delete-#{p[:id]}", :type => "button"} Delete Post
 = render :partial => "posts/new", :locals => {:post => @post} 
 = render :partial => "posts/edit", :locals => {:post => @post}

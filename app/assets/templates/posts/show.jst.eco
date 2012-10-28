@@ -7,8 +7,3 @@
     <h3><%= @post.get('date_published') %></h3>
     <div><%- @post.get('content') %></div>
 </div>
-
-
-
-
-

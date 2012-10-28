@@ -6,9 +6,10 @@
     <div class="content"><%- post.get('content') %></div>
   </div>
 <% end %>
-<% if @posts.models.length == 0 && window.location.pathname.search('/search/') == -1: %>
-  <h1>No posts here...</h1>
-<% else if @posts.models.length == 0 && window.location.pathname.search('/search/') != -1: %>
-  <h1>No posts match your search...</h1>
+<% jQuery.ready  -> %>
+  <% if @posts.models.length == 0 && window.location.pathname.search('/search/') == -1: %>
+    <h1>No posts here...</h1>
+  <% else if @posts.models.length == 0 && window.location.pathname.search('/search/') != -1: %>
+    <h1>No posts match your search...</h1>
 
 

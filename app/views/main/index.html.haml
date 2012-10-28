@@ -1,26 +1,9 @@
-.row.show-grid
-  .span7
+#blog-content.row.show-grid
+  .span8
     #feed
-      %h1 Nothing here...
-  .span5
+  .span4
     #side-stuff
       #bubble-cloud
-        .pagination
-          %ul#pagination-li
-            %li
-              %a#prev Previous
-            %li#1
-              %a.a 1
-            %li#2
-              %a.a 2
-            %li#3
-              %a.a 3
-            %li#4
-              %a.a 4
-            %li#5
-              %a.a 5
-            %li
-              %a#next  Next
         -#=content_for :head do
           -#=javascript_include_tag "/assets/d3/bubble-chart"
 

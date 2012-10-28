@@ -1,9 +1,44 @@
 $(document).ready(function() {
 
-      
+  // Regexes for search
+
+  path = window.location.pathname
+
+  regexs = new Object ({
+    'keyword': new Object ({
+      'url_regex' : /\/keyword\//,
+    }),
+    'posts': new Object ({
+      'url_regex' : /\/post\//,
+      'param_regex' : /[0-9]+/
+    }),
+    'page': new Object ({
+      'url_regex' : /\/page\//,
+      'param_regex' : /[0-9]+/
+    }),
+    'search': new Object ({
+      'url_regex' : /search/
+    })
+  });
+
+  url_param = "";
+
+  if (regexs.posts.url_regex.test(path)) {
+    num = path.match(regexs.posts.param_regex)[0]
+    url_param = "post/" + num
+  }
+  else if (regexs.page.url_regex.test(path)) {
+    url_param = "page/" + path.match(regexs.page.param_regex)
+  }
+  else if (regexs.search.url_regex.test(path)) {
+    url_param = path
+  }
+
+  // Bubble chart stuff
+
   var r = 350,
       format = d3.format(",d"),
-      fill = "#08C"
+      fill = "#5AB9EC"
 
   var bubble = d3.layout.pack()
                  .sort(null)
@@ -15,7 +50,7 @@ $(document).ready(function() {
               .attr("height", r)
               .attr("class", "bubble");
 
-  d3.json("/bubble-data.json", function(json) {
+  d3.json("/api/tags/" + url_param, function(json) {
     
     var node = vis.selectAll("g.node")
                   .data(bubble.nodes(classes(json))
@@ -28,7 +63,7 @@ $(document).ready(function() {
         .text(function(d) { return d.className + ": " + format(d.value); });
 
     node.append("circle")
-        .attr("r", function(d) { return d.r - 4; })
+        .attr("r", function(d) { return d.r * 0.9; })
         .style("fill", fill);
 
     node.append("text")

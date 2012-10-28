@@ -31,12 +31,25 @@ p {
 
 @import "bootstrap";
 
-body { padding-top: 30px; }
+body { 
+  padding-top: 30px;
+  background-color: #718BAC;
+}
 
-@import "bootstrap-responsive";
+.navbar {
+  position: fixed;
+  top: 85px;
+  left: 122px;
+  width: 1040px;
+}
 
 .navbar .brand {
   color: #FAFFB8;
+}
+
+.navbar .nav {
+ margin: 10px 10px 0px 0px;
+
 }
 
 .nav {
@@ -46,7 +59,8 @@ body { padding-top: 30px; }
 }
 
 ul.nav {
- width:270px;
+  margin: 10px 10px 0px 0px;
+  width:270px;
 }
 
 header{
@@ -55,7 +69,9 @@ header{
    float:right;
   }
 }
-
+.title h1 a {
+  color: #D1E7D1;
+}
 a:hover {
   text-decoration:none;
 }
@@ -75,17 +91,50 @@ a:hover {
 .jumbotron {
   height: 50px;
   margin: 10px 0px 10px 0px;
-  textcolor: $grayDarker;
+  text-color: $grayDarker;
 }
 .title h1 {
   font-size: 50px;
   font-weight: bold;
 }
 
-@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-  .title h1 {
-  font-size: 35px;
-  font-weight: bold;
+.pagination {
+  float: left;
+  margin-left: 120px;
 }
+
+.pagination a { 
+  background-color: whiteSmoke;
+}
+
+#blog-content { 
+  height: 100%;
+}
+
+.white-div {
+  position: fixed;
+  top: 0px;
+  background-color: white;
+  margin-top: -40px;
+  padding-bottom: 40px;
+  width: 940px;
+  padding-left: 10px;
+  padding-right: 90px;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-width: 50px;
+  border-color: #333333;
+  background: #333333; /* Old browsers */
+  margin-left: -100px;
+}
+
+div#content {
+  min-height: 900px;
+  background-color: #D1E7D1;
+  padding: 160px 75px 0px 25px;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-width: 50px;
+  border-color: #333;
 }
 
