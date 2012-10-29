@@ -60,7 +60,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    respond_with Post.destroy(params[:id])
+    post = Post.find_by_id(params[:id]).destroy
+    render :json => {:id => post.id, 
+                     :title => post.title, 
+                     :date_published => post.date_published.strftime("%a %b %d %Y"), 
+                     :content => RedCloth.new(post.content).to_html, 
+                     :keywords => post.keywords.map {|k| k.name}}.to_json 
   end
 
   def edit
@@ -79,6 +84,9 @@ class PostsController < ApplicationController
 
   def search
     render :json => Post.blog_search(params[:query]).to_json
+  end
+
+  def tag 
   end
 
 end

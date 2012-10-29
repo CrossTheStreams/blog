@@ -4,7 +4,6 @@
 #= require bootstrap-modal
 
 $(document).ready ->
-  #Fetching posts for editting in modal.
   fetch_for_edit = (id) ->    
     $.ajax({
       url: '/api/posts/' + id + '/edit',
@@ -31,20 +30,7 @@ $(document).ready ->
           success: (data) ->
         }); 
   )
-  # Deleting posts from table 
   delete_post = (id) ->
     $.ajax({
-      url: '/api/posts/' + id 
-      type: 'DELETE'
-      success: (data) ->
-        console.log(data)
-        console.log(data.id)
-        console.log(typeof data.id)
-        $('#post-id-' + data.id).fadeOut()
+      url: '/api/posts/' + id + '/destroy'
     });
-  $('.delete-btn').on('click', -> 
-    element_id = @.id
-    post_id = element_id.match(/[0-9]+/)[0]
-    delete_post(post_id)
-  )
-
