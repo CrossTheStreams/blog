@@ -15,7 +15,7 @@ class TagsController < ApplicationController
   def keyword
     hash = {}
     if params[:name]
-      keyword = Keyword.find_by_id(params[:name])
+      keyword = Keyword.find_by_name(params[:name])
       unless keyword.nil?
         post_array = keyword.posts 
         hash = Tag.bubble_hash(post_array)

@@ -5,8 +5,8 @@ $(document).ready(function() {
   path = window.location.pathname
 
   regexs = new Object ({
-    'keyword': new Object ({
-      'url_regex' : /\/keyword\//,
+    'tag': new Object ({
+      'url_regex' : /\/tag\//,
     }),
     'posts': new Object ({
       'url_regex' : /\/post\//,
@@ -33,12 +33,17 @@ $(document).ready(function() {
   else if (regexs.search.url_regex.test(path)) {
     url_param = path
   }
+  else if (regexs.tag.url_regex.test(path)) {
+    url_param = "/keyword/" + path.replace(regexs.tag.url_regex,"");
+
+    console.log(url_param);
+  }
 
   // Bubble chart stuff
 
-  var r = 350,
+  var r = 370,
       format = d3.format(",d"),
-      fill = "#5AB9EC"
+      fill = "#1B9BFF"
 
   var bubble = d3.layout.pack()
                  .sort(null)
@@ -49,6 +54,14 @@ $(document).ready(function() {
               .attr("width", r)
               .attr("height", r)
               .attr("class", "bubble");
+ 
+  d3.selectAll("svg").append("circle")
+                 .attr("r", function(){ return r/2 })
+                 .style("fill", "#333333")
+                 .attr("cx", r/2)
+                 .attr("cy", r/2)
+
+
 
   d3.json("/api/tags/" + url_param, function(json) {
     
@@ -66,8 +79,11 @@ $(document).ready(function() {
         .attr("r", function(d) { return d.r * 0.9; })
         .style("fill", fill);
 
-    node.append("text")
-        .attr("text-anchor", "middle")
+    node.append("a")
+        .attr("xlink:href", function(d) { return '/tag/' + d.className;})
+        .append("text")
+        .attr("fill", "white")
+        .attr("text-anchor", "middle") 
         .attr("dy", ".5em")
         .text(function(d) { return d.className.substring(0, d.r); });
 
@@ -90,8 +106,6 @@ $(document).ready(function() {
     recurse(null, root);
     return {children: classes};
   }
-
-
 });
 
 

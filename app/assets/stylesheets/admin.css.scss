@@ -28,11 +28,18 @@ textarea {
   width: 600px;
 }
 #admin-title {
-  margin: 20px 0px 20px 0px;
   .btn {
     float:right;
   }
   h1 {
     float:left;
   }
+}
+
+#analytics{
+  h1 {
+    margin-left:20px;
+  }
+  margin-left:20px;
+  min-height: 500px;
 }

@@ -5,7 +5,7 @@ class Blog.Routers.Posts extends Backbone.Router
     'posts/:id': 'show'
     'page/:pageNumber': 'page'
     'search/:query' : 'search'
-    'tag/:keyword' : ''
+    'tag/:keyword' : 'tag'
 
   initialize: ->
     @collection = new Blog.Collections.Posts()
@@ -85,5 +85,9 @@ class Blog.Routers.Posts extends Backbone.Router
 
   tag: (keyword) ->
     collection = new Blog.Collections.Posts
+    collection.fetch({url: api_url + '/tag/' + keyword})
+    view = new Blog.Views.PostsIndex(collection: collection)
+    $('#feed').html(view.render().el)
 
-class Blog.Routers.Tags extends Backbone.Router 
+
+

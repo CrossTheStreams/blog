@@ -3,8 +3,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
-//= require backbone
+//= require underscore.v142.min
+//= require backbone.v092.min
 //= require bootstrap-dropdown
 //= require bootstrap-transition
 //= require bootstrap-typeahead

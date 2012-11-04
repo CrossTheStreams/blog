@@ -14,6 +14,7 @@ $(document).ready ->
         $('#edit-modal #content').val(data.content);
         $('#edit-modal #keywords').val(data.keywords.map (d) -> " " + d);
         $('#edit-modal form')[0].action = location.host + "/api/posts/" + id
+        $('#update-btn').data().id = id
         if data.published == true
           $('#edit-modal #published')[0].checked = true;
     });  
@@ -24,12 +25,32 @@ $(document).ready ->
     post_id = element_id.match(/[0-9]+/)[0]
     fetch_for_edit(post_id)
     $('#edit-modal').modal('show'))
-  $('#update-btn').on('click', -> 
-        $.ajax({
-          url: '/api/posts/' + id + '/edit',
-          dataType: 'json',
-          success: (data) ->
-        }); 
+  update_post = (id) ->
+    content = $('#edit-modal textarea#content').val()
+    title = $('#edit-modal input#title').val()
+    published = $('#edit-modal #published').val()
+    keywords = $('#edit-modal #keywords').val()
+    $.ajax({
+      url: '/api/posts/' + id + '/update'
+      dataType: 'text'
+      type: 'POST'
+      data: {  'post' : {
+            'id' : id,
+            'title' : title,
+            'content' : content,
+            'published' : published,
+            'keywords' : keywords 
+            }
+        }
+      success: (data) ->
+        console.log();
+        alert(data);
+      failure: (data) ->
+        alert(data)
+    }); 
+  $('#update-btn').on('click', ->
+    id = $('#update-btn').data().id
+    update_post(id)
   )
   # Deleting posts from table 
   delete_post = (id) ->

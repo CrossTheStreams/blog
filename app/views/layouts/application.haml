@@ -1,10 +1,13 @@
 !!! 5
 %html
   %head
-    %title CrossTheStreams 
+    %title Hautaulogy 
     = stylesheet_link_tag "application", controller_name
+    = stylesheet_link_tag "solarized-dark"
     = javascript_include_tag "application", controller_name
     = javascript_include_tag "d3.v2.min"
+    = javascript_include_tag "rainbow.min"
+    = javascript_include_tag "ruby"
     = csrf_meta_tags
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
   %body
@@ -20,37 +23,39 @@
                   =link_to "Log out", logout_path
         .title 
           %h1
-            %a{ :href => root_path } CrossTheStreams  
-      .navbar
-        .navbar-inner
-          .container
-            %ul{:class => "nav"}
-              %li
-                =form_tag('/search/', :method => 'post', :class => "navbar-search pull-right") do 
-                  =text_field_tag :query, params[:query], :class =>"search-query span2", :id => "blog-search", :placeholder => "Search"
-            %ul{:class => "nav"}
-              %li
-                %a{:href => "#"} Blog
-              %li
-                %a{:href => "#"} Static 1
-              %li
-                %a{:href => "#"} Static 2
-            .pagination
-              %ul#pagination-li
+            %a{ :href => root_path } Hautaulogy
+          %h3 
+            Adventures in code, music, data science, and the other things.
+        .navbar
+          .navbar-inner
+            .container
+              %ul{:class => "nav"}
                 %li
-                  %a#pre #{"<"}
-                %li#1
-                  %a.a{:href => '/page/1'} 1
-                %li#2
-                  %a.a{:href => '/page/2'} 2
-                %li#3
-                  %a.a{:href => '/page/3'} 3
-                %li#4
-                  %a.a{:href => '/page/4'} 4
-                %li#5
-                  %a.a{:href => '/page/1'} 5
+                  =form_tag('/search/', :method => 'post', :class => "navbar-search pull-right") do 
+                    =text_field_tag :query, params[:query], :class =>"search-query span2", :id => "blog-search", :placeholder => "Search"
+              %ul{:class => "nav"}
                 %li
-                  %a#next #{">"}
+                  %a{:href => "#"} Blog
+                %li
+                  %a{:href => "#"} Static 1
+                %li
+                  %a{:href => "#"} Static 2
+              .pagination
+                %ul#pagination-li
+                  %li
+                    %a#pre #{"<"}
+                  %li#1
+                    %a.a{:href => '/page/1'} 1
+                  %li#2
+                    %a.a{:href => '/page/2'} 2
+                  %li#3
+                    %a.a{:href => '/page/3'} 3
+                  %li#4
+                    %a.a{:href => '/page/4'} 4
+                  %li#5
+                    %a.a{:href => '/page/1'} 5
+                  %li
+                    %a#next #{">"}
     #content.container
       -flash.each do |name, msg|
         =content_tag :div, msg, :id => "flash#{name}", :class => "alert"
