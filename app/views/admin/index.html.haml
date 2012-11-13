@@ -22,8 +22,9 @@
               =p[:keywords].map {|k| k.name}.join(", ") 
             %td
               %button.btn.edit-btn{:id => "edit-#{p[:id]}", :type => "button"} Edit Post
-              %button.btn.delete-btn{:id => "delete-#{p[:id]}", :type => "button"} Delete Post
+              %button.delete-btn.btn{:type => "button", :type => "button", :data => {:post => "#{p[:id]}"}} Delete Post
   #analytics.span5 
     %h1 Analytics
 = render :partial => "posts/new", :locals => {:post => @post} 
 = render :partial => "posts/edit", :locals => {:post => @post}
+= render :partial => "posts/destroy", :locals => {:post => @post}

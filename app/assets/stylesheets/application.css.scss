@@ -73,6 +73,7 @@ header{
 }
 .title {
   margin-left: -10px;
+  width: 1040px;
   h1 a {
     font-size: 50px;
     font-weight: bold;
@@ -108,10 +109,9 @@ a:hover {
 .pagination {
   float: left;
   margin-left: 120px;
-}
-
-.pagination a { 
-  background-color: whiteSmoke;
+  a {
+    background-color: #333333;
+  }
 }
 
 #blog-content { 
@@ -139,3 +139,11 @@ div#content {
   border-width: 50px;
 }
 
+.icons {
+  float: right;
+  margin-top: -50px;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}

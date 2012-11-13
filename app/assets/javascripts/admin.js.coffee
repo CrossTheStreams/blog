@@ -59,13 +59,14 @@ $(document).ready ->
       type: 'DELETE'
       success: (data) ->
         console.log(data)
-        console.log(data.id)
-        console.log(typeof data.id)
         $('#post-id-' + data.id).fadeOut()
     });
-  $('.delete-btn').on('click', -> 
-    element_id = @.id
-    post_id = element_id.match(/[0-9]+/)[0]
-    delete_post(post_id)
+  $('.delete-btn').on('click', ->
+    $('#destroy-modal').attr('data-post',$(this).attr('data-post'))
+    $('#destroy-modal').modal('show')
+  )
+  $('#destroy-post-btn').on('click', ->
+    delete_post($('#destroy-modal').attr('data-post'))
+    $('#destroy-modal').modal('hide')
   )
 
