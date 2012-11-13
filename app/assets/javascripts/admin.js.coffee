@@ -58,7 +58,6 @@ $(document).ready ->
       url: '/api/posts/' + id 
       type: 'DELETE'
       success: (data) ->
-        console.log(data)
         $('#post-id-' + data.id).fadeOut()
     });
   $('.delete-btn').on('click', ->

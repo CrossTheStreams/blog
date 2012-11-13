@@ -4,6 +4,7 @@
     <div class="tags"><strong>Tags:</strong> <%= post.get('keywords').map (d) -> " " + d.name %></div>
     <h3><%= post.get('date_published') %></h3>
     <div class="content"><%- post.get('content') %></div>
+    <h3 class="comments-link"><a href="/posts/<%= post.get('id') %>">Post and Read Comments</a></h3>
   </div>
 <% end %>
 <% jQuery.ready  -> %>
