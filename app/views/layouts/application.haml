@@ -21,9 +21,13 @@
                   Logged in as #{current_user.name}
                 %li
                   =link_to "Log out", logout_path
-        .title 
-          %h1
-            %a{ :href => root_path } Hautaulogy
+        .title
+          .title-link
+            %a{:href => root_path}
+              .character
+                =image_tag "/character.png", :class => "character"  
+              %h1
+                %span Hautaulogy
           %h3 
             Code, music, data science, and the other things. Hooray for blogs!
           .icons{:style => "float:right;"}
@@ -40,12 +44,12 @@
                     =text_field_tag :query, params[:query], :class =>"search-query span2", :id => "blog-search", :placeholder => "Search"
               %ul{:class => "nav links"}
                 %li
-                  %a{:href => "#"} Projects
+                  %a{:style => "display:none;", :href => "#"} Projects
                 %li
-                  %a{:href => "#"} Musical Things 
-                %li
-                  %a{:href => "#"} About
-              .pagination
+                  %a{:style => "display:none;", :href => "#"} Musical Things 
+                %li{:style => "float:right;"}
+                  %a{:href => "/about"} About
+              .pagination{:class => "#{ params[:controller] == 'static' ? 'hide':''}"}
                 %ul#pagination-li
                   %li
                     %a#pre #{"<"}

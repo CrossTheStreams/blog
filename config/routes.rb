@@ -1,6 +1,10 @@
 Blog::Application.routes.draw do
 
   get 'admin' => 'admin#index'
+  
+  get '/about' => 'static#about'
+  get '/music' => 'static#music'
+  get '/projects' => 'static#projects'
 
   if Rails.env == "test"
     mount Jasminerice::Engine => '/jasmine'
