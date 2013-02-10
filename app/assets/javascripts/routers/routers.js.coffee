@@ -43,8 +43,6 @@ class Blog.Routers.Posts extends Backbone.Router
       $('#' + pageNumber).addClass('active')
       links.each (i, a) -> 
         a.href = '/page/' + (link_num + i)
-    for link in links
-      link.textContent = link_num + _i
     $('#pre').attr('href', (pageNumber - 1))      
     $('#next').attr('href', (pageNumber + 1))
 
@@ -73,8 +71,6 @@ class Blog.Routers.Posts extends Backbone.Router
       $('#' + postNumber).addClass('active')
       links.each (i, a) -> 
         a.href = '/posts/' + (postNumber - i)
-    for link in links
-      link.textContent = link_num + _i
     $('#next').attr('href', (postNumber + 1))
 
   search: (query) ->

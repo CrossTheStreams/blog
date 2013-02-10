@@ -107,7 +107,7 @@ class Post < ActiveRecord::Base
         admin ? ret = Post.admin_list(1,false) : ret = Post.list(1,false)
       when "posts"
         Rails.logger.debug("Dispatched to 'posts'. param1 = #{param1} ++++++")
-        ret << Post.find(param1) 
+        ret = [Post.find(param1)] rescue [] 
       when "page"
         Rails.logger.debug("Dispatched to 'page'. param1 = #{param1} ++++++")
         admin ? ret = Post.admin_list(param1,false) : ret = Post.list(param1,false)

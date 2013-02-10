@@ -30,6 +30,18 @@
   margin-left: -10px;
 }
 
-.pagination a {
-  background-color: whiteSmoke;
+.pagination {
+  font-size: 25px;
+  float: right;
+  margin-top: 20px;
+  width: 334px;
+  a {
+    background-color: transparent !important;
+    border:none;
+  }
+  .active a {
+    background-color: transparent !important;
+    border:none;  
+  }
 }
+

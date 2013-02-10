@@ -116,15 +116,6 @@ a:hover {
   text-color: $grayDarker;
 }
 
-.pagination {
-  float: right;
-  margin-top: 20px;
-  a {
-    background-color: #333333;
-  }
-  width: 290px;
-}
-
 #blog-content { 
   height: 100%;
 }
@@ -161,7 +152,7 @@ div#content {
 h3.comments-link {
   line-height: 80px;
 }
-.pagination a {
-  background-color: #f5f5f5;
+.pagination a:hover {
+    background-color: transparent !important;
 }
 

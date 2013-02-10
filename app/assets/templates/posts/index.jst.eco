@@ -10,9 +10,9 @@
   </div>
 <% end %>
 <% jQuery.ready -> %>
-  <% if @posts.models.length == 0 && window.location.pathname.search('/search/') == -1: %>
+  <% if @posts.models.length == 0 :%>
     <h1>No posts here...</h1>
-  <% else if @posts.models.length == 0 && window.location.pathname.search('/search/') != -1: %>
+  <% else if @posts.models.length == 0 :%>
     <h1>No posts match your search...</h1>
 
 

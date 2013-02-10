@@ -47,22 +47,22 @@
                   %a{:style => "display:none;", :href => "#"} Projects
                 %li
                   %a{:style => "display:none;", :href => "#"} Musical Things 
-                %li{:style => "float:right;"}
+                %li{:style => "display:none;float:right;"}
                   %a{:href => "/about"} About
               .pagination{:class => "#{ params[:controller] == 'static' ? 'hide':''}"}
                 %ul#pagination-li
-                  %li
+                  %li{:class => "#{}" }
                     %a#pre #{"<"}
                   %li#1
-                    %a.a{:href => '/page/1'} 1
+                    %a.a{:href => '/page/1'} •
                   %li#2
-                    %a.a{:href => '/page/2'} 2
+                    %a.a{:href => '/page/2'} •
                   %li#3
-                    %a.a{:href => '/page/3'} 3
+                    %a.a{:href => '/page/3'} •
                   %li#4
-                    %a.a{:href => '/page/4'} 4
+                    %a.a{:href => '/page/4'} •
                   %li#5
-                    %a.a{:href => '/page/1'} 5
+                    %a.a{:href => '/page/1'} •
                   %li
                     %a#next #{">"}
       #content
