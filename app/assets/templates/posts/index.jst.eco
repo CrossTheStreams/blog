@@ -1,13 +1,15 @@
 <% for post in @posts.models: %>
   <div class="post" id="post-<%= post.get('id') %>">
     <h1><a href="/posts/<%= post.get('id') %>"><%= post.get('title') %></a></h1>
-    <div class="tags"><strong>Tags:</strong> <%= post.get('keywords').map (d) -> " " + d.name %></div>
+    <div class="tags"><strong>Tags:</strong> 
+      <%- post.get('keywords').map (d) -> " " + "<a href='/tag/"+d.name+"'>"+d.name+"</a>" %>
+    </div>
     <h3><%= post.get('date_published') %></h3>
     <div class="content"><%- post.get('content') %></div>
     <h3 class="comments-link"><a href="/posts/<%= post.get('id') %>">Post and Read Comments</a></h3>
   </div>
 <% end %>
-<% jQuery.ready  -> %>
+<% jQuery.ready -> %>
   <% if @posts.models.length == 0 && window.location.pathname.search('/search/') == -1: %>
     <h1>No posts here...</h1>
   <% else if @posts.models.length == 0 && window.location.pathname.search('/search/') != -1: %>

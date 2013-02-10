@@ -65,9 +65,9 @@
                     %a.a{:href => '/page/1'} 5
                   %li
                     %a#next #{">"}
-    #content.container
-      -flash.each do |name, msg|
-        =content_tag :div, msg, :id => "flash#{name}", :class => "alert"
-      =yield
+      #content
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash#{name}", :class => "alert"
+        = yield
 
 

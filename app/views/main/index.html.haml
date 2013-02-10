@@ -1,5 +1,14 @@
 #blog-content.row.show-grid
   #feed.span8
+    -# If the user doesn't have javascript, go to plan B.
+    - @noscript_posts ||= []
+    - if @noscript_posts.length == 1
+      - post = @noscript_posts.first
+      = render :partial => '/posts/show', :locals => {:post => post}
+    - elsif @noscript_posts.length > 1
+      = render :partial => '/posts/index', :locals => {:posts => @noscript_posts}
   .span4
     #side-stuff
       #bubble-cloud
+
+          

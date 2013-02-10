@@ -1,0 +1,19 @@
+%noscript
+  = content_tag :div, "Your javascripts are undefined. Plz turn on the javascripts.", :id => "flashnotice", :class => "alert"
+  .post{:id => "post-"+"#{post.id}"}
+    %h1
+      =link_to post.title, "/posts/"+"#{post.id}" 
+    .tags
+      %strong Tags:
+      - post.keywords.map do |keyword|
+        =link_to keyword.name, '/tag/' + keyword.name 
+    %h3 #{post.date_published.strftime("%a %b %d %Y").to_s}
+    .content
+      :textile 
+        #{post.content}
+    %br    
+    %noscript 
+      %a{:href => "http://disqus.com/?ref_noscript"} Please enable JavaScript to view the
+      %a.dsq-brlink{:href => "http://disqus.com"}
+        %span.logo-disqus comments powered by Disqus 
+

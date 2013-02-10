@@ -1,0 +1,16 @@
+= content_tag :div, "Your javascripts are undefined. Plz turn on the javascripts.", :id => "flashnotice", :class => "alert"
+-posts.map do |post|
+  .post{:id => "post-"+"#{post.id}"}
+    %h1
+      =link_to post.title, "/posts/"+post.id.to_s
+    .tags
+      %strong Tags:
+      - post.keywords.map do |keyword|
+        =link_to keyword.name, "/tag/"+keyword.name
+    %h3 #{post.date_published.strftime("%a %b %d %Y").to_s} 
+    .content
+      :textile
+        #{post.content}
+    %h3.comments-link
+      =link_to "Post and Read Comments (Disqus comments require javascript)", "/posts/"+post.id.to_s
+

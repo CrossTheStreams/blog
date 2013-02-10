@@ -17,11 +17,11 @@ Blog::Application.routes.draw do
   scope 'api' do
     resources :posts
     post '/posts/:id/update' => 'posts#update'
-    get '/posts/search/:query' => 'posts#search'
+    get '/posts/search/:query(/:page)' => 'posts#search'
     get '/posts/tag/:keyword' => 'posts#tag'
     delete 'posts/:id' => 'posts#destroy'
     get '/tags/' => 'tags#index'
-    get '/tags/keyword/:name' => 'tags#keyword'
+    get '/tags/keyword/:name(/:page)' => 'tags#keyword'
     get '/tags/post/:id' => 'tags#post'
     get '/tags/page/:page' => 'tags#page'
     get '/tags/search/:query' => 'tags#search'

@@ -117,12 +117,12 @@ a:hover {
 }
 
 .pagination {
-  float: left;
-  margin-left: 30px;
+  float: right;
+  margin-top: 20px;
   a {
     background-color: #333333;
   }
-  width: 265px;
+  width: 290px;
 }
 
 #blog-content { 
@@ -130,24 +130,23 @@ a:hover {
 }
 
 .white-div {
+  width:100%;
   position: fixed;
   top: 0px;
   background-color: #333333;
   margin-top: -40px;
   padding-bottom: 40px;
-  width: 940px;
   padding-left: 10px;
   padding-right: 90px;
-  margin-left: -50px;
+  margin-left: -20px;
 }
 
 div#content {
+  width: 940px;
+  margin-left: -20px;
   min-height: 900px;
   background-color: #D1E7D1;
   padding: 185px 75px 0px 25px;
-  border-right-style: solid;
-  border-left-style: solid;
-  border-width: 50px;
 }
 
 .icons {

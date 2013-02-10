@@ -12,6 +12,9 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params[:id])
+    if !current_user || post.nil?
+      render :nothing => true and return
+    end
     render :json => {:id => post.id, 
                      :title => post.title, 
                      :date_published => post.date_published.strftime("%a %b %d %Y"), 
@@ -88,9 +91,11 @@ class PostsController < ApplicationController
   end
 
   def tag
-    posts = Keyword.find_by_name(params[:keyword]).posts rescue []
+    posts = []
     if !current_user
-      posts.select! {|p| p.published}
+      posts = Post.search_by_keyword(params[:keyword])
+    else
+      posts = Post.search_by_keyword(params[:keyword], true)
     end
     json_hash = posts.map {|p| 
       { 
