@@ -24,16 +24,18 @@
 }
 
 #side-stuff {
-  width:380px;
-  position:fixed;
+  width: 380px;
+  position: fixed;
   margin-top: -15px;
-  margin-left: -10px;
+  margin-left: 630px;
+  top: 215px;
+  margin-right: auto;
 }
 
 .pagination {
   font-size: 25px;
   float: right;
-  margin-top: 20px;
+  margin: -5px 0px 20px 10px;
   width: 334px;
   a {
     background-color: transparent !important;

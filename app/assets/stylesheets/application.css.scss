@@ -33,8 +33,11 @@ body {
 .navbar {
   position: fixed;
   top: 115px;
-  margin-left: -10px;
-  width: 1040px;
+  left: 0;
+  width: 100%;
+  .container { 
+    width: 90%;
+  }
 }
 
 .navbar .brand {
@@ -42,7 +45,7 @@ body {
 }
 
 .navbar .nav {
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px 10px 0px;
   a {
     font-size: 15px;
   }
@@ -123,28 +126,28 @@ a:hover {
 }
 
 .white-div {
-  width:100%;
   position: fixed;
   top: 0px;
   background-color: #333333;
   margin-top: -40px;
-  padding-bottom: 40px;
-  padding-left: 10px;
-  padding-right: 90px;
-  margin-left: -20px;
+  left: 40px;
+  padding-left: 50px;
+  margin-left: -50px;
+  width: 100%;
 }
 
-div#content {
-  width: 940px;
-  margin-left: -20px;
+#content {
+  width: 95%;
   min-height: 900px;
   background-color: #D1E7D1;
   padding: 185px 75px 0px 25px;
 }
 
 .icons {
+  margin-right:150px; 
   float: right;
   margin-top: -50px;
+  width:200px;
   img {
     width: 50px;
     height: 50px;

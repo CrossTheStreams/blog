@@ -41,7 +41,7 @@ $(document).ready(function() {
 
   // Bubble chart stuff
 
-  var r = 370,
+  var r = 320,
       format = d3.format(",d"),
       fill = "#1B9BFF"
 
