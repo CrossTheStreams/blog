@@ -4,6 +4,10 @@
 //= require bootstrap-dropdown
 //= require bootstrap-typeahead
 //=
+
+//= require admin
+//= require main
+//= require blog
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
