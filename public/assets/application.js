@@ -1,1 +1,447 @@
-(function(){this.JST||(this.JST={}),this.JST["posts/index"]=function(e){e||(e={});var t=[],n=function(e){var n=t,r;return t=[],e.call(this),r=t.join(""),t=n,i(r)},r=function(e){return e&&e.ecoSafe?e:typeof e!="undefined"&&e!=null?o(e):""},i,s=e.safe,o=e.escape;return i=e.safe=function(e){if(e&&e.ecoSafe)return e;if(typeof e=="undefined"||e==null)e="";var t=new String(e);return t.ecoSafe=!0,t},o||(o=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,i,s,o;o=this.posts.models;for(i=0,s=o.length;i<s;i++)e=o[i],t.push('\n  <div class="post" id="post-'),t.push(r(e.get("id"))),t.push('">\n    <h1><a href="/posts/'),t.push(r(e.get("id"))),t.push('">'),t.push(r(e.get("title"))),t.push('</a></h1>\n    <div class="tags"><strong>Tags:</strong> \n      '),t.push(e.get("keywords").map(function(e){return" <a href='/tag/"+e.name+"'>"+e.name+"</a>"})),t.push("\n    </div>\n    <h3>"),t.push(r(e.get("date_published"))),t.push('</h3>\n    <div class="content">'),t.push(e.get("content")),t.push('</div>\n    <h3 class="comments-link"><a href="/posts/'),t.push(r(e.get("id"))),t.push('">Post and Read Comments</a></h3>\n  </div>\n');t.push("\n"),jQuery.ready(function(){return n(function(){t.push("\n  ");if(this.posts.models.length===0)return t.push("\n    <h1>No posts here...</h1>\n  ");if(this.posts.models.length===0)return t.push("\n    <h1>No posts match your search...</h1>\n\n\n\n")})})}).call(this)}.call(e),e.safe=s,e.escape=o,t.join("")}}).call(this),function(){this.JST||(this.JST={}),this.JST["posts/show"]=function(e){e||(e={});var t=[],n=function(e){var n=t,r;return t=[],e.call(this),r=t.join(""),t=n,i(r)},r=function(e){return e&&e.ecoSafe?e:typeof e!="undefined"&&e!=null?o(e):""},i,s=e.safe,o=e.escape;return i=e.safe=function(e){if(e&&e.ecoSafe)return e;if(typeof e=="undefined"||e==null)e="";var t=new String(e);return t.ecoSafe=!0,t},o||(o=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="post" id="post-'),t.push(r(this.post.get("id"))),t.push('">\n  <h1><a href="/posts/'),t.push(r(this.post.get("id"))),t.push('">'),t.push(r(this.post.get("title"))),t.push('</a></h1>\n  <div class="tags">\n    <strong>Tags:</strong>\n    '),t.push(this.post.attributes.keywords.map(function(e){return" <a href='/tag/"+e+"'>"+e+"</a>"})),t.push("\n  </div>\n  <h3>"),t.push(r(this.post.get("date_published"))),t.push("</h3>\n  <div class='content'>"),t.push(this.post.get("content")),t.push("</div>\n  <div id=\"disqus_thread\"><a name=\"comments\"</div>\n  <script type=\"text/javascript\">\n      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */\n      var disqus_shortname = 'hautaulogy'; // required: replace example with your forum shortname\n\n      /* * * DON'T EDIT BELOW THIS LINE * * */\n      (function() {\n          var dsq = document.createElement('script'); \n              dsq.type = 'text/javascript'; dsq.async = true;\n              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';\n              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);\n      })();\n  </script>\n  <noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>\n  <a href=\"http://disqus.com\" class=\"dsq-brlink\">comments powered by <span class=\"logo-disqus\">Disqus</span></a> \n</div>\n")}).call(this)}.call(e),e.safe=s,e.escape=o,t.join("")}}.call(this),function(){var e={}.hasOwnProperty,t=function(t,n){function i(){this.constructor=t}for(var r in n)e.call(n,r)&&(t[r]=n[r]);return i.prototype=n.prototype,t.prototype=new i,t.__super__=n.prototype,t};Blog.Models.Post=function(e){function n(){return n.__super__.constructor.apply(this,arguments)}return t(n,e),n}(Backbone.Model),Blog.Models.Tag=function(e){function n(){return n.__super__.constructor.apply(this,arguments)}return t(n,e),n}(Backbone.Model)}.call(this),function(){var e={}.hasOwnProperty,t=function(t,n){function i(){this.constructor=t}for(var r in n)e.call(n,r)&&(t[r]=n[r]);return i.prototype=n.prototype,t.prototype=new i,t.__super__=n.prototype,t};Blog.Collections.Posts=function(e){function n(){return n.__super__.constructor.apply(this,arguments)}return t(n,e),n.prototype.url="/api/posts",n.prototype.model=Blog.Models.Post,n}(Backbone.Collection),Blog.Collections.Tags=function(e){function n(){return n.__super__.constructor.apply(this,arguments)}return t(n,e),n.prototype.url="api/tags",n.prototype.model=Blog.Models.Tag,n}(Backbone.Collection)}.call(this),function(){var e={}.hasOwnProperty,t=function(t,n){function i(){this.constructor=t}for(var r in n)e.call(n,r)&&(t[r]=n[r]);return i.prototype=n.prototype,t.prototype=new i,t.__super__=n.prototype,t};Blog.Views.PostsIndex=function(e){function n(){return n.__super__.constructor.apply(this,arguments)}return t(n,e),n.prototype.template=JST["posts/index"],n.prototype.initialize=function(){return this.collection.on("reset",this.render,this)},n.prototype.render=function(){return $(this.el).html(this.template({posts:this.collection})),Rainbow.color(),this},n}(Backbone.View)}.call(this),function(){var e={}.hasOwnProperty,t=function(t,n){function i(){this.constructor=t}for(var r in n)e.call(n,r)&&(t[r]=n[r]);return i.prototype=n.prototype,t.prototype=new i,t.__super__=n.prototype,t};Blog.Views.PostsShow=function(e){function n(){return n.__super__.constructor.apply(this,arguments)}return t(n,e),n.prototype.el="#feed",n.prototype.template=JST["posts/show"],n.prototype.initialize=function(){return this.model.bind("change",this.render,this)},n.prototype.render=function(){return $(this.el).html(this.template({post:this.model})),this},n}(Backbone.View)}.call(this),function(){var e={}.hasOwnProperty,t=function(t,n){function i(){this.constructor=t}for(var r in n)e.call(n,r)&&(t[r]=n[r]);return i.prototype=n.prototype,t.prototype=new i,t.__super__=n.prototype,t};Blog.Routers.Posts=function(e){function r(){return r.__super__.constructor.apply(this,arguments)}var n;return t(r,e),n=Blog.Collections.Posts.prototype.url,r.prototype.routes={"":"index","posts/:id":"show","page/:pageNumber":"page","search/:query":"search","tag/:keyword":"tag"},r.prototype.initialize=function(){return this.collection=new Blog.Collections.Posts},r.prototype.index=function(){var e;return this.collection.fetch(),e=new Blog.Views.PostsIndex({collection:this.collection}),$("#feed").html(e.render().el),$("#prev").css("visibility","hidden"),$("#next").attr("href","page/2"),$("#1").addClass("active"),$(".a")[0].style.borderLeftWidth="1px"},r.prototype.page=function(e){var t,n,r,i;return t=new Blog.Collections.Posts,t.fetch({data:{page:e}}),i=new Blog.Views.PostsIndex({collection:t}),$("#feed").html(i.render().el),$("#prev").attr("href","/page/"+(e-1)),r=$(".a"),e=parseInt(e),e<=1&&(e=1,this.navigate(""),$(".a")[0].style.borderLeftWidth="1px",r.each(function(t,n){return n.href="/page/"+e})),e>2?(n=e-2,$("#3").addClass("active"),r.each(function(e,t){return t.href="/page/"+(n+e)})):(n=1,$("#"+e).addClass("active"),r.each(function(e,t){return t.href="/page/"+(n+e)})),$("#pre").attr("href",e-1),$("#next").attr("href",e+1)},r.prototype.show=function(e){var t,n,r,i,s,o;return i=new Blog.Models.Post({id:e}),o=new Blog.Views.PostsShow({model:i}),t=new Blog.Collections.Posts([i]),i.fetch(),r=$(".a"),s=parseInt(e),$("#prev").attr("href","/posts/"+(s-1)),s===1&&($(".a")[0].style.borderLeftWidth="1px",$("#prev").css("visibility","hidden"),$("#1").addClass("active"),r.each(function(e,t){return t.href="/posts/"+s})),s>2?(n=s-2,$("#3").addClass("active"),r.each(function(e,t){return t.href="/posts/"+(s-e)})):(n=1,$("#"+s).addClass("active"),r.each(function(e,t){return t.href="/posts/"+(s-e)})),$("#next").attr("href",s+1)},r.prototype.search=function(e){var t,r;return t=new Blog.Collections.Posts,t.fetch({url:n+"/search/"+e}),r=new Blog.Views.PostsIndex({collection:t}),$("#feed").html(r.render().el)},r.prototype.tag=function(e){var t,r;return t=new Blog.Collections.Posts,t.fetch({url:n+"/tag/"+e}),r=new Blog.Views.PostsIndex({collection:t}),$("#feed").html(r.render().el)},r}(Backbone.Router)}.call(this);
+(function() {
+  this.JST || (this.JST = {});
+  this.JST["posts/index"] = function(__obj) {
+    if (!__obj) __obj = {};
+    var __out = [], __capture = function(callback) {
+      var out = __out, result;
+      __out = [];
+      callback.call(this);
+      result = __out.join('');
+      __out = out;
+      return __safe(result);
+    }, __sanitize = function(value) {
+      if (value && value.ecoSafe) {
+        return value;
+      } else if (typeof value !== 'undefined' && value != null) {
+        return __escape(value);
+      } else {
+        return '';
+      }
+    }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
+    __safe = __obj.safe = function(value) {
+      if (value && value.ecoSafe) {
+        return value;
+      } else {
+        if (!(typeof value !== 'undefined' && value != null)) value = '';
+        var result = new String(value);
+        result.ecoSafe = true;
+        return result;
+      }
+    };
+    if (!__escape) {
+      __escape = __obj.escape = function(value) {
+        return ('' + value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      };
+    }
+    (function() {
+      (function() {
+        var post, _i, _len, _ref;
+      
+        _ref = this.posts.models;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          post = _ref[_i];
+          __out.push('\n  <div class="post" id="post-');
+          __out.push(__sanitize(post.get('id')));
+          __out.push('">\n    <h1><a href="/posts/');
+          __out.push(__sanitize(post.get('id')));
+          __out.push('">');
+          __out.push(__sanitize(post.get('title')));
+          __out.push('</a></h1>\n    <div class="tags"><strong>Tags:</strong> \n      ');
+          __out.push(post.get('keywords').map(function(d) {
+            return " " + "<a href='/tag/" + d.name + "'>" + d.name + "</a>";
+          }));
+          __out.push('\n    </div>\n    <h3>');
+          __out.push(__sanitize(post.get('date_published')));
+          __out.push('</h3>\n    <div class="content">');
+          __out.push(post.get('content'));
+          __out.push('</div>\n    <h3 class="comments-link"><a href="/posts/');
+          __out.push(__sanitize(post.get('id')));
+          __out.push('">Post and Read Comments</a></h3>\n  </div>\n');
+        }
+      
+        __out.push('\n');
+      
+        jQuery.ready(function() {
+          return __capture(function() {
+            __out.push('\n  ');
+            if (this.posts.models.length === 0) {
+              return __out.push('\n    <h1>No posts here...</h1>\n  ');
+            } else if (this.posts.models.length === 0) {
+              return __out.push('\n    <h1>No posts match your search...</h1>\n\n\n\n');
+            }
+          });
+        });
+      
+      }).call(this);
+      
+    }).call(__obj);
+    __obj.safe = __objSafe, __obj.escape = __escape;
+    return __out.join('');
+  };
+}).call(this);
+(function() {
+  this.JST || (this.JST = {});
+  this.JST["posts/show"] = function(__obj) {
+    if (!__obj) __obj = {};
+    var __out = [], __capture = function(callback) {
+      var out = __out, result;
+      __out = [];
+      callback.call(this);
+      result = __out.join('');
+      __out = out;
+      return __safe(result);
+    }, __sanitize = function(value) {
+      if (value && value.ecoSafe) {
+        return value;
+      } else if (typeof value !== 'undefined' && value != null) {
+        return __escape(value);
+      } else {
+        return '';
+      }
+    }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
+    __safe = __obj.safe = function(value) {
+      if (value && value.ecoSafe) {
+        return value;
+      } else {
+        if (!(typeof value !== 'undefined' && value != null)) value = '';
+        var result = new String(value);
+        result.ecoSafe = true;
+        return result;
+      }
+    };
+    if (!__escape) {
+      __escape = __obj.escape = function(value) {
+        return ('' + value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      };
+    }
+    (function() {
+      (function() {
+      
+        __out.push('<div class="post" id="post-');
+      
+        __out.push(__sanitize(this.post.get('id')));
+      
+        __out.push('">\n  <h1><a href="/posts/');
+      
+        __out.push(__sanitize(this.post.get('id')));
+      
+        __out.push('">');
+      
+        __out.push(__sanitize(this.post.get('title')));
+      
+        __out.push('</a></h1>\n  <div class="tags">\n    <strong>Tags:</strong>\n    ');
+      
+        __out.push(this.post.attributes.keywords.map(function(d) {
+          return " " + "<a href='/tag/" + d + "'>" + d + "</a>";
+        }));
+      
+        __out.push('\n  </div>\n  <h3>');
+      
+        __out.push(__sanitize(this.post.get('date_published')));
+      
+        __out.push('</h3>\n  <div class=\'content\'>');
+      
+        __out.push(this.post.get('content'));
+      
+        __out.push('</div>\n  <div id="disqus_thread"><a name="comments"</div>\n  <script type="text/javascript">\n      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */\n      var disqus_shortname = \'hautaulogy\'; // required: replace example with your forum shortname\n\n      /* * * DON\'T EDIT BELOW THIS LINE * * */\n      (function() {\n          var dsq = document.createElement(\'script\'); \n              dsq.type = \'text/javascript\'; dsq.async = true;\n              dsq.src = \'http://\' + disqus_shortname + \'.disqus.com/embed.js\';\n              (document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(dsq);\n      })();\n  </script>\n  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>\n  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a> \n</div>\n');
+      
+      }).call(this);
+      
+    }).call(__obj);
+    __obj.safe = __objSafe, __obj.escape = __escape;
+    return __out.join('');
+  };
+}).call(this);
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Blog.Models.Post = (function(_super) {
+
+    __extends(Post, _super);
+
+    function Post() {
+      return Post.__super__.constructor.apply(this, arguments);
+    }
+
+    return Post;
+
+  })(Backbone.Model);
+
+  Blog.Models.Tag = (function(_super) {
+
+    __extends(Tag, _super);
+
+    function Tag() {
+      return Tag.__super__.constructor.apply(this, arguments);
+    }
+
+    return Tag;
+
+  })(Backbone.Model);
+
+}).call(this);
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Blog.Collections.Posts = (function(_super) {
+
+    __extends(Posts, _super);
+
+    function Posts() {
+      return Posts.__super__.constructor.apply(this, arguments);
+    }
+
+    Posts.prototype.url = '/api/posts';
+
+    Posts.prototype.model = Blog.Models.Post;
+
+    return Posts;
+
+  })(Backbone.Collection);
+
+  Blog.Collections.Tags = (function(_super) {
+
+    __extends(Tags, _super);
+
+    function Tags() {
+      return Tags.__super__.constructor.apply(this, arguments);
+    }
+
+    Tags.prototype.url = 'api/tags';
+
+    Tags.prototype.model = Blog.Models.Tag;
+
+    return Tags;
+
+  })(Backbone.Collection);
+
+}).call(this);
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Blog.Views.PostsIndex = (function(_super) {
+
+    __extends(PostsIndex, _super);
+
+    function PostsIndex() {
+      return PostsIndex.__super__.constructor.apply(this, arguments);
+    }
+
+    PostsIndex.prototype.template = JST['posts/index'];
+
+    PostsIndex.prototype.initialize = function() {
+      return this.collection.on('reset', this.render, this);
+    };
+
+    PostsIndex.prototype.render = function() {
+      $(this.el).html(this.template({
+        posts: this.collection
+      }));
+      Rainbow.color();
+      return this;
+    };
+
+    return PostsIndex;
+
+  })(Backbone.View);
+
+}).call(this);
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Blog.Views.PostsShow = (function(_super) {
+
+    __extends(PostsShow, _super);
+
+    function PostsShow() {
+      return PostsShow.__super__.constructor.apply(this, arguments);
+    }
+
+    PostsShow.prototype.el = '#feed';
+
+    PostsShow.prototype.template = JST['posts/show'];
+
+    PostsShow.prototype.initialize = function() {
+      return this.model.bind('change', this.render, this);
+    };
+
+    PostsShow.prototype.render = function() {
+      $(this.el).html(this.template({
+        post: this.model
+      }));
+      return this;
+    };
+
+    return PostsShow;
+
+  })(Backbone.View);
+
+}).call(this);
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  Blog.Routers.Posts = (function(_super) {
+    var api_url;
+
+    __extends(Posts, _super);
+
+    function Posts() {
+      return Posts.__super__.constructor.apply(this, arguments);
+    }
+
+    api_url = Blog.Collections.Posts.prototype.url;
+
+    Posts.prototype.routes = {
+      '': 'index',
+      'posts/:id': 'show',
+      'page/:pageNumber': 'page',
+      'search/:query': 'search',
+      'tag/:keyword': 'tag'
+    };
+
+    Posts.prototype.initialize = function() {
+      return this.collection = new Blog.Collections.Posts();
+    };
+
+    Posts.prototype.index = function() {
+      var view;
+      this.collection.fetch();
+      view = new Blog.Views.PostsIndex({
+        collection: this.collection
+      });
+      $('#feed').html(view.render().el);
+      $('#prev').css('visibility', 'hidden');
+      $('#next').attr('href', 'page/2');
+      $('#1').addClass('active');
+      return $(".a")[0].style.borderLeftWidth = "1px";
+    };
+
+    Posts.prototype.page = function(pageNumber) {
+      var collection, link_num, links, view;
+      collection = new Blog.Collections.Posts;
+      collection.fetch({
+        data: {
+          page: pageNumber
+        }
+      });
+      view = new Blog.Views.PostsIndex({
+        collection: collection
+      });
+      $('#feed').html(view.render().el);
+      $('#prev').attr('href', '/page/' + (pageNumber - 1));
+      links = $('.a');
+      pageNumber = parseInt(pageNumber);
+      if (pageNumber <= 1) {
+        pageNumber = 1;
+        this.navigate("");
+        $(".a")[0].style.borderLeftWidth = "1px";
+        links.each(function(i, a) {
+          return a.href = '/page/' + pageNumber;
+        });
+      }
+      if (pageNumber > 2) {
+        link_num = pageNumber - 2;
+        $('#3').addClass('active');
+        links.each(function(i, a) {
+          return a.href = '/page/' + (link_num + i);
+        });
+      } else {
+        link_num = 1;
+        $('#' + pageNumber).addClass('active');
+        links.each(function(i, a) {
+          return a.href = '/page/' + (link_num + i);
+        });
+      }
+      $('#pre').attr('href', pageNumber - 1);
+      return $('#next').attr('href', pageNumber + 1);
+    };
+
+    Posts.prototype.show = function(id) {
+      var collection, link_num, links, post, postNumber, view;
+      post = new Blog.Models.Post({
+        id: id
+      });
+      view = new Blog.Views.PostsShow({
+        model: post
+      });
+      collection = new Blog.Collections.Posts([post]);
+      post.fetch();
+      links = $('.a');
+      postNumber = parseInt(id);
+      $('#prev').attr('href', '/posts/' + (postNumber - 1));
+      if (postNumber === 1) {
+        $(".a")[0].style.borderLeftWidth = "1px";
+        $('#prev').css('visibility', 'hidden');
+        $('#1').addClass('active');
+        links.each(function(i, a) {
+          return a.href = '/posts/' + postNumber;
+        });
+      }
+      if (postNumber > 2) {
+        link_num = postNumber - 2;
+        $('#3').addClass('active');
+        links.each(function(i, a) {
+          return a.href = '/posts/' + (postNumber - i);
+        });
+      } else {
+        link_num = 1;
+        $('#' + postNumber).addClass('active');
+        links.each(function(i, a) {
+          return a.href = '/posts/' + (postNumber - i);
+        });
+      }
+      return $('#next').attr('href', postNumber + 1);
+    };
+
+    Posts.prototype.search = function(query) {
+      var collection, view;
+      collection = new Blog.Collections.Posts;
+      collection.fetch({
+        url: api_url + '/search/' + query
+      });
+      view = new Blog.Views.PostsIndex({
+        collection: collection
+      });
+      return $('#feed').html(view.render().el);
+    };
+
+    Posts.prototype.tag = function(keyword) {
+      var collection, view;
+      collection = new Blog.Collections.Posts;
+      collection.fetch({
+        url: api_url + '/tag/' + keyword
+      });
+      view = new Blog.Views.PostsIndex({
+        collection: collection
+      });
+      return $('#feed').html(view.render().el);
+    };
+
+    return Posts;
+
+  })(Backbone.Router);
+
+}).call(this);
+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
+// GO AFTER THE REQUIRES BELOW.
+//
+
+
+
+
+
+
+;
