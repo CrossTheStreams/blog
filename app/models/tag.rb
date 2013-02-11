@@ -7,8 +7,11 @@ class Tag < ActiveRecord::Base
   #
   # post array : Array : An array of post objects
 
-  def self.bubble_hash(post_array)
+  def self.bubble_hash(post_array, admin=false)
     keyword_arr = []
+    unless admin
+      post_array = post_array.select {|p| p.date_published}
+    end
     post_array.map {|p| keyword_arr.concat(p.keywords)}
     keyword_arr.uniq!
     tag_counts = keyword_arr.map do |k| 

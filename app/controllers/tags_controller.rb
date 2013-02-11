@@ -2,9 +2,17 @@ class TagsController < ApplicationController
 
   # Render json for tags blog-wide
   def index
-    tag_counts = Keyword.all.map do |k| 
-      {"keyword" => k.name, "count" => Tag.where(:keyword_id => k.id).count}
+
+     if !current_user 
+       tag_counts = Keyword.all.map do |k|
+         {"keyword" => k.name, "count" => Tag.includes(:post).where("posts.date_published is not null").where(:keyword_id => k.id).count}
+       end 
+    else
+      tag_counts = Keyword.all.map do |k|
+        {"keyword" => k.name, "count" => Tag.includes(:post).where(:keyword_id => k.id).count}
+      end 
     end
+    
     render :json => {
      "name" => "tags",
      "children" => tag_counts 
@@ -49,7 +57,11 @@ class TagsController < ApplicationController
     hash = {}
     if params[:query]
       post_array = Post.text_search(params[:query])
-      hash = Tag.bubble_hash(post_array)
+      if current_user
+        hash = Tag.bubble_hash(post_array, true)
+      else
+        hash = Tag.bubble_hash(post_array, false)
+      end
     end
     render :json => hash
   end

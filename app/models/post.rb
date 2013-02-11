@@ -80,8 +80,9 @@ class Post < ActiveRecord::Base
   def self.search_by_keyword(keyword, admin=false)
     posts = Keyword.find_by_name(keyword).posts rescue []
     if !admin
-      posts.select! {|p| p.published}
+      posts.reject! {|p| !p.date_published}
     end
+    posts
   end
 
   # Since I'm a crazy person, the initial build of this app relies on client side logic for user facing content.
@@ -116,7 +117,7 @@ class Post < ActiveRecord::Base
         ret = Post.blog_search(param1)        
       when "tag"
         Rails.logger.debug("Dispatched to 'tag'. param1 = #{param1} ++++++")
-        ret = Post.search_by_keyword(param1)
+        ret = Post.search_by_keyword(param1) rescue []
     end
     ret ||= []
     return ret
