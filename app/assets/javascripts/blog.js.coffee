@@ -5,6 +5,7 @@ window.Blog =
   Routers: {}
   init: ->
     new Blog.Routers.Posts
+    console.log("stuff")
     Backbone.history.start({pushState: true})
 
 $(document).ready ->

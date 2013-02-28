@@ -3,9 +3,10 @@
 //= require bootstrap-transition
 //= require bootstrap-dropdown
 //= require bootstrap-typeahead
-//=
+//= require backbone
 
 //= require blog
+
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
