@@ -12,9 +12,6 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params[:id])
-    if !current_user || post.nil?
-      render :nothing => true and return
-    end
     render :json => {:id => post.id, 
                      :title => post.title, 
                      :date_published => post.date_published.strftime("%a %b %d %Y"), 

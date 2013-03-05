@@ -7,8 +7,6 @@
       = render :partial => '/posts/show', :locals => {:post => post}
     - elsif @noscript_posts.length > 1
       = render :partial => '/posts/index', :locals => {:posts => @noscript_posts}
-  -#.span4
-    -##side-stuff
-      -##bubble-cloud
+  =render :partial => 'main/side_stuff'
 
           

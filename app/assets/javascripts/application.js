@@ -3,7 +3,6 @@
 //= require bootstrap-transition
 //= require bootstrap-dropdown
 //= require bootstrap-typeahead
-//= require backbone
 
 //= require blog
 
