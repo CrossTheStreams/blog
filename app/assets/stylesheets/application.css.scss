@@ -29,7 +29,10 @@ body {
   padding-top: 30px;
   background-color: #333333;
 }
-
+.pagination ul>li>a, 
+.pagination ul>li>span {
+  border:none;  
+}
 .container {
   width:100%;
 }
