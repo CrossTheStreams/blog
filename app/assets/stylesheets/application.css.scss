@@ -29,6 +29,9 @@ body {
   padding-top: 30px;
   background-color: #333333;
 }
+h3 {
+ font-size:1.5em;
+}
 .pagination ul>li>a, 
 .pagination ul>li>span {
   border:none;  
@@ -163,7 +166,6 @@ input.search-query {
 }
 
 .icons {
-  margin-right:175px; 
   float: right;
   margin-top: -50px;
   width:200px;
