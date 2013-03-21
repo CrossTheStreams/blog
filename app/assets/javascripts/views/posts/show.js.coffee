@@ -8,5 +8,6 @@ class Blog.Views.PostsShow extends Backbone.View
 
   render: ->
     $(@el).html(@template(post: @model))
+    Rainbow.color()
     @
 

@@ -68,7 +68,9 @@ ul.nav {
 }
 ul.nav.search {
   width: 251px;
-  margin-left: 10px;
+  float:right;
+  top: 15px;
+  left: -11.5em;
 }
 ul.nav.links {
   width: 360px;
@@ -112,7 +114,7 @@ a:hover {
 }
 
 .navbar-inner {
-  height: 80px ;
+  height: 6em ;
   form {
     input {
       width:220px;
@@ -134,6 +136,10 @@ a:hover {
   height: 100%;
 }
 
+input.search-query {
+  margin-top: -1em;
+}
+
 .white-div {
   position: fixed;
   top: 0px;
@@ -150,7 +156,7 @@ a:hover {
   margin-left:auto;
   min-height: 900px;
   background-color: #D1E7D1;
-  padding: 185px 75px 0px 25px;
+  padding: 230px 75px 0px 25px;
 }
 
 .icons {

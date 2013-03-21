@@ -39,17 +39,6 @@
         .navbar
           .navbar-inner
             .container
-              %ul{:class => "nav search"}
-                %li
-                  =form_tag('/search/', :method => 'post', :class => "navbar-search pull-right") do 
-                    =text_field_tag :query, params[:query], :class =>"search-query span2", :id => "blog-search", :placeholder => "Search"
-              %ul{:class => "nav links"}
-                %li
-                  %a{:style => "display:none;", :href => "#"} Projects
-                %li
-                  %a{:style => "display:none;", :href => "#"} Musical Things 
-                %li{:style => "display:none;float:right;"}
-                  %a{:href => "/about"} About
               .pagination{:class => "#{ params[:controller] == 'static' ? 'hide' : '' }"}
                 %ul#pagination-li
                   %li{:class => "#{}" }
@@ -66,6 +55,18 @@
                     %a.a{:href => '/page/1'} •
                   %li
                     %a#next #{">"}
+              %ul{:class => "nav links"}
+                %li
+                  %a{:style => "display:none;", :href => "#"} Projects
+                %li
+                  %a{:style => "display:none;", :href => "#"} Musical Things 
+                %li{:style => "display:none;float:right;"}
+                  %a{:href => "/about"} About
+              %ul{:class => "nav search"}
+                %li
+                  =form_tag('/search/', :method => 'post', :class => "navbar-search pull-right") do 
+                    =text_field_tag :query, params[:query], :class =>"search-query span2", :id => "blog-search", :placeholder => "Search"
+      =hidden_field 'post-count', Post.count
       #content
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash#{name}", :class => "alert"

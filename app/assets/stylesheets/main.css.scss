@@ -26,14 +26,15 @@
 #side-stuff {
   width: 380px;
   position: fixed;
-  top: 215px;
-  left:70%;
+  top: 270px;
+  left:69%;
 }
 
 .pagination {
   font-size: 2.2em;
-  float: right;
+  float: left;
   width: 12em;
+  margin: 20px 0px 0px 0px;
   a {
     background-color: transparent !important;
     border:none;
