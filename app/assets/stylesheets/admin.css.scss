@@ -9,13 +9,13 @@
 #edit-modal {
   left: 40%;
   width: 800px; 
-  height: 610px;
+  height: 620px;
 }
 .modal-body {
   max-height: 610px;
 }
 .modal.fade.in {
-  top: 45%;
+  top: 5%;
 }
 input {
   width: 300px;
@@ -46,7 +46,11 @@ textarea {
 
 #content textarea {
  font-family: 'Monaco', courier, monospace;
- font-size:13px;
+ font-size: 13px;
+ padding: 10px;
+ min-height: 0px;
+ background-color: rgb(38,38,38);
+ color: rgb(142,226,227);
 }
  input#title {
  font-family: 'Monaco', courier, monospace;
