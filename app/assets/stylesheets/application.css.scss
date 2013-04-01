@@ -75,7 +75,7 @@ ul.nav {
 ul.nav.search {
   width: 251px;
   float:right;
-  top: 15px;
+  top: 0.3em;
   left: -11.5em;
 }
 ul.nav.links {
@@ -91,7 +91,6 @@ header{
 .title {
   margin-left: -10px;
   width: 1040px;
-  margin-bottom: 22px;
   .character{
     width:70px;
     height:109px;
@@ -120,7 +119,7 @@ a:hover {
 }
 
 .navbar-inner {
-  height: 6em ;
+  height: 4em ;
   form {
     input {
       width:220px;
@@ -150,7 +149,7 @@ input.search-query {
   position: fixed;
   top: 0px;
   background-color: #333333;
-  margin-top: -40px;
+  margin-top: -50px;
   left: 40px;
   padding-left: 50px;
   margin-left: -50px;
@@ -162,7 +161,7 @@ input.search-query {
   margin-left:auto;
   min-height: 900px;
   background-color: #D1E7D1;
-  padding: 230px 75px 0px 25px;
+  padding: 160px 75px 0px 25px;
 }
 
 .icons {
@@ -180,6 +179,7 @@ h3.comments-link {
 }
 .pagination {
   font-size: 2.2em;
+  margin-top: 0.45em !important;
 }
 .pagination a:hover {
     background-color: transparent !important;
