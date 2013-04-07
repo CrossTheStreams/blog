@@ -16,8 +16,7 @@ class Blog.Routers.Posts extends Backbone.Router
     $('#feed').html(view.render().el)
     $('#prev').css('visibility','hidden')
     $('#next').attr('href','page/2')
-    $('#1').addClass('active')
-    $(".a")[0].style.borderLeftWidth = "1px"
+    $('.prev').addClass('active')
 
   page: (pageNumber) ->
     collection = new Blog.Collections.Posts

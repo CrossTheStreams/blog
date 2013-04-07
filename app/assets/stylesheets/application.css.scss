@@ -19,7 +19,7 @@ $linkColorHover: #08C;
 
 p {
  a{ 
-   color: #07C;
+   color: #1b9bff;
  }
 }
 
@@ -41,6 +41,7 @@ h3 {
 }
 #bubble-cloud {
   height: 400px;
+  position:fixed;
 }
 
 .navbar {
@@ -74,9 +75,9 @@ ul.nav {
 }
 ul.nav.search {
   width: 251px;
-  float:right;
   top: 0.3em;
-  left: -11.5em;
+  display:inline;
+  vertical-align:top;
 }
 ul.nav.links {
   width: 360px;
@@ -106,16 +107,21 @@ header{
   h1 {
     font-size: 50px;
     font-weight: bold;
-    color: #1B9BFF;
+    color: #d1e7d1;
     width: 350px;
   }
   h3 {
-    color: #1B9BFF;
+    color: #8a9b8a;
     margin-top: 10px;
   }
 }
 a:hover {
   text-decoration:none;
+}
+a:hover,
+a:focus {
+  color: #1b9bff;
+  text-decoration: none;
 }
 
 .navbar-inner {
@@ -162,6 +168,8 @@ input.search-query {
   min-height: 900px;
   background-color: #D1E7D1;
   padding: 160px 75px 0px 25px;
+  min-width:1330px;
+  width:100%;
 }
 
 .icons {
@@ -178,8 +186,12 @@ h3.comments-link {
   line-height: 80px;
 }
 .pagination {
+  width: 100%;
   font-size: 2.2em;
   margin-top: 0.45em !important;
+}
+.pagination ul {
+  width: 100%;
 }
 .pagination a:hover {
     background-color: transparent !important;

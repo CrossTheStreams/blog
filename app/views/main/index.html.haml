@@ -1,4 +1,11 @@
 #blog-content.row.show-grid
+  .span9{:style => "width:900px;"}
+    .pagination{:class => "#{ params[:controller] == 'static' ? 'hide' : '' }"}
+      %ul#pagination-li
+        %li.next
+          %a.a{:href => '/page/1'} <
+        %li.prev
+          %a.a{:href => '/page/2'} >
   #feed.span9
     -# If the user doesn't have javascript, go to plan B.
     - @noscript_posts ||= []
