@@ -12,11 +12,15 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params[:id])
+    current_user ||= nil
+    current_user ? admin = true : admin = false
     render :json => {:id => post.id, 
                      :title => post.title, 
                      :date_published => post.date_published.strftime("%a %b %d %Y"), 
                      :content => RedCloth.new(post.content).to_html, 
-                     :keywords => post.keywords.map {|k| k.name}}.to_json 
+                     :keywords => post.keywords.map {|k| k.name},
+                     :next => post.next_link(admin),
+                     :previous => post.prev_link(admin)}.to_json 
   end
 
   def create
@@ -105,5 +109,6 @@ class PostsController < ApplicationController
     }.to_json
     render :json => json_hash
   end
+
 
 end

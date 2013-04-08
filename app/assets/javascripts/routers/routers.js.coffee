@@ -16,61 +16,46 @@ class Blog.Routers.Posts extends Backbone.Router
     $('#feed').html(view.render().el)
     $('#prev').css('visibility','hidden')
     $('#next').attr('href','page/2')
-    $('.prev').addClass('active')
 
   page: (pageNumber) ->
     collection = new Blog.Collections.Posts
+    console.log(collection)
     collection.fetch({data: {page: pageNumber}})
     view = new Blog.Views.PostsIndex(collection: collection)
+    page_int = parseInt(pageNumber)
+    page_count = parseInt($("#page-count").val())
     $('#feed').html(view.render().el)
-    $('#prev').attr('href', '/page/' + (pageNumber - 1))
-    links = $('.a')
-    pageNumber = parseInt(pageNumber)
-    if pageNumber <= 1 
-       pageNumber = 1
-       @navigate("") 
-       $(".a")[0].style.borderLeftWidth = "1px"
-       links.each (i, a) -> 
-         a.href = '/page/' + (pageNumber)
-    if pageNumber > 2
-      link_num = pageNumber - 2
-      $('#3').addClass('active')
-      links.each (i, a) -> 
-        a.href = '/page/' + (link_num + i)
-    else 
-      link_num = 1
-      $('#' + pageNumber).addClass('active')
-      links.each (i, a) -> 
-        a.href = '/page/' + (link_num + i)
-    $('#pre').attr('href', (pageNumber - 1))      
-    $('#next').attr('href', (pageNumber + 1))
+    if page_int - 1 != 0
+      $('#prev').attr('href', '/page/' + (page_int - 1))
+    else
+      $('.prev').css('visibility', 'hidden')
+    unless page_int + 1 > page_count
+      $('#next').attr('href', '/page/' + (page_int + 1))
+    else
+      $('.next').css('visibility', 'hidden')
 
         
   show: (id) ->
     post = new Blog.Models.Post id: id
     view = new Blog.Views.PostsShow model: post
     collection = new Blog.Collections.Posts [post]
-    post.fetch() 
-    links = $('.a')
-    postNumber = parseInt(id)
-    $('#prev').attr('href', '/posts/' + (postNumber - 1))
-    if postNumber == 1
-      $(".a")[0].style.borderLeftWidth = "1px"
-      $('#prev').css('visibility','hidden')
-      $('#1').addClass('active')
-      links.each (i, a) -> 
-         a.href = '/posts/' + (postNumber)
-    if postNumber > 2
-      link_num = postNumber - 2
-      $('#3').addClass('active')
-      links.each (i, a) -> 
-        a.href = '/posts/' + (postNumber - i)
-    else
-      link_num = 1
-      $('#' + postNumber).addClass('active')
-      links.each (i, a) -> 
-        a.href = '/posts/' + (postNumber - i)
-    $('#next').attr('href', (postNumber + 1))
+    post.fetch {
+      success: (post) -> 
+        window.foo = post
+        postNumber = parseInt(id)
+        next = post.attributes.next
+        prev = post.attributes.previous
+        console.log(next)
+        if next != ""
+          $("#next").attr('href', '/posts/' + next)
+        else
+          $('.next').css('visibility', 'hidden')
+        if prev != ""
+          $("#prev").attr('href', '/posts/' + prev)
+        else
+          $('.prev').css('visibility', 'hidden')
+      }
+
 
   search: (query) ->
     collection = new Blog.Collections.Posts

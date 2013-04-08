@@ -12,6 +12,8 @@
     = csrf_meta_tags
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
   %body
+    :javascript
+      window.foo = {}
     .container
       .white-div
         %header{:class => "jumbotron subhead"}
@@ -49,8 +51,13 @@
                 %li
                   %a{:style => "display:none;", :href => "#"} Musical Things 
                 %li{:style => "display:none;float:right;"}
-                  %a{:href => "/about"} About      
-      =hidden_field 'post-count', Post.count
+                  %a{:href => "/about"} About
+      - if current_user
+        = hidden_field_tag 'post-count', Post.count
+        = hidden_field_tag 'page-count', Post.page_count(true)
+      - else
+        = hidden_field_tag 'post-count', Post.where(:published => true).count
+        = hidden_field_tag 'page-count', Post.page_count
       #content
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash#{name}", :class => "alert"

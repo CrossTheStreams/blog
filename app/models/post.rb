@@ -14,8 +14,34 @@ class Post < ActiveRecord::Base
     super(:only => [:id, :title, :content, :date_published, :keywords])
   end
 
-  def self.page_count
-    Post.where(:published => true).count/5
+  def self.page_count(admin=false)
+    if admin
+      (Post.count.to_f/5.to_f).ceil
+    else
+      (Post.where(:published => true).count.to_f/5.to_f).ceil
+    end
+  end
+
+  # Fetch id of next post and return as string
+  # id : integer : id of post we need to fetch past
+  # admin : boolean : current_user.admin?, should we display unpublished stuff?
+  def next_link(admin=false)
+    if admin
+      Post.limit(1).where("id > #{self.id}").pluck(:id).to_s
+    else
+      Post.limit(1).where("id > #{self.id} and date_published is not null").pluck(:id).first.to_s
+    end
+  end
+
+  # Fetch id of next post and return as string
+  # id : integer : id of post we need to fetch past
+  # admin : boolean : current_user.admin?, should we display unpublished stuff?
+  def prev_link(admin=false)
+    if admin
+      Post.limit(1).where("id < #{self.id}").order("id DESC").pluck(:id).to_s
+    else
+      Post.limit(1).where("id < #{self.id} and date_published is not null").order("id DESC").pluck(:id).first.to_s 
+    end
   end
    
   def self.list(page,for_json=true)

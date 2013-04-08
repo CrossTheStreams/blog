@@ -186,12 +186,19 @@ h3.comments-link {
   line-height: 80px;
 }
 .pagination {
-  width: 100%;
+  width: 100% !important ;
   font-size: 2.2em;
+  font-weight: bold;
   margin-top: 0.45em !important;
 }
 .pagination ul {
   width: 100%;
+}
+.pagination li.next {
+  float:right;
+}
+.pagination a#prev {
+  padding-left: 0px;
 }
 .pagination a:hover {
     background-color: transparent !important;
