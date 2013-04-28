@@ -58,7 +58,7 @@ h3 {
 }
 
 .navbar .nav {
-  margin: 10px 0px 10px 0px;
+  margin: 8px 0px 10px 10px;
   a {
     font-size: 15px;
   }
@@ -93,10 +93,9 @@ header{
   margin-left: -10px;
   width: 1040px;
   .character{
-    width:70px;
-    height:109px;
+    width:55px;
     float:left;
-    margin-top:-13px;
+    margin-top:-3px;
     img {
       width:70px;
     }
@@ -105,7 +104,7 @@ header{
   }
   }
   h1 {
-    font-size: 50px;
+    font-size: 43px; 
     font-weight: bold;
     color: #d1e7d1;
     width: 350px;
@@ -113,6 +112,7 @@ header{
   h3 {
     color: #8a9b8a;
     margin-top: 10px;
+    line-height: 25px;
   }
 }
 a:hover {
@@ -125,9 +125,10 @@ a:focus {
 }
 
 .navbar-inner {
-  height: 4em ;
+  max-height: 40px;
   form {
     input {
+      height: 15px;
       width:220px;
     }
   }
@@ -139,7 +140,6 @@ a:focus {
 }
 .jumbotron {
   height: 50px;
-  margin: 10px 0px 10px 0px;
   text-color: $grayDarker;
 }
 
@@ -157,7 +157,7 @@ input.search-query {
   background-color: #333333;
   margin-top: -50px;
   left: 40px;
-  padding-left: 50px;
+  padding-left: 30px;
   margin-left: -50px;
   width: 100%;
 }
@@ -167,7 +167,7 @@ input.search-query {
   margin-left:auto;
   min-height: 900px;
   background-color: #D1E7D1;
-  padding: 160px 75px 0px 25px;
+  padding: 105px 75px 0px 25px;
   min-width:1330px;
   width:100%;
 }
