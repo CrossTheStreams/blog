@@ -11,6 +11,8 @@ gem 'RedCloth'
 gem 'devise'
 gem 'will_paginate', '~> 3.0'
 
+gem 'mobylette'
+
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
   gem 'growl'

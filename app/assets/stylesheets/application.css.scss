@@ -91,7 +91,7 @@ header{
 }
 .title {
   margin-left: -10px;
-  width: 1040px;
+  width: 100%;
   .character{
     width:55px;
     float:left;
@@ -170,6 +170,7 @@ input.search-query {
   padding: 105px 75px 0px 25px;
   min-width: 80%;
 }
+
 
 .icons {
   float: right;

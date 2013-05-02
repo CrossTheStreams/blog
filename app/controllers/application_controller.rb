@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+  include Mobylette::RespondToMobileRequests
+
   private
 
   def current_user 
