@@ -46,6 +46,15 @@ test:
   username: admin
   password:
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: blog_staging 
+  pool: 5
+  username: admin
+  password:
+
+
 production:
   adapter: postgresql
   encoding: unicode
