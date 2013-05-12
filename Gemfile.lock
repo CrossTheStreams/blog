@@ -228,7 +228,7 @@ DEPENDENCIES
   RedCloth
   backbone-on-rails
   bcrypt-ruby (~> 3.0.0)
-  bootstrap-sass (~> 2.3.1.0)
+  bootstrap-sass
   capybara-webkit
   coffee-rails (~> 3.2.1)
   devise
