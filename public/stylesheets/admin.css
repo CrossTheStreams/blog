@@ -1,7 +1,7 @@
 #new-modal {
   left: 40%;
   width: 800px;
-  height: 610px; }
+  height: 650px; }
 
 #edit-modal {
   left: 40%;
@@ -18,7 +18,7 @@ input {
   width: 300px; }
 
 textarea {
-  width: 600px;
+  width: 750px;
   height: 300px; }
 
 #keywords {
