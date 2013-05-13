@@ -34,7 +34,8 @@ class PostsController < ApplicationController
                           :published => params[:post]["published"] == "1",
                           :date_published => ((params[:post]["published"] == "1") ? DateTime.now : nil))
       if params[:keywords]
-        names = params[:keywords].split(",").map {|n| n.lstrip!;n.rstrip!;n.capitalize!}
+        names = params[:keywords].split(",").map {|n| n.lstrip;n.rstrip;n.capitalize}
+        names.reject! {|n| n.blank?}
         names.map do |name|
           keyword = Keyword.find_or_create_by_name(:name => name)
           tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => @post.id,
@@ -54,8 +55,10 @@ class PostsController < ApplicationController
                                      :content => RedCloth.new(params[:post][:content]),
                                      :published => params[:post]["published"] == "1",
                                      :date_published => ((params[:post]["published"] == "1") ? DateTime.now : nil))
-      if params[:keywords]
-        names = params[:keywords].split(",").map {|n| n.lstrip!;n.rstrip!;n.downcase!}
+      if params[:post][:keywords]
+        post.tags.delete_all
+        names = params[:post][:keywords].split(",").map {|n| n.lstrip;n.rstrip;n.downcase}
+        names.reject! {|n| n.blank?}
         names.map do |name|
           keyword = Keyword.find_or_create_by_name(:name => name)
           tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => post.id,
