@@ -53,7 +53,7 @@ class PostsController < ApplicationController
     if post
       post.update_attributes(:title => params[:post][:title],
                                      :content => RedCloth.new(params[:post][:content]),
-                                     :published => params[:post]["published"] == "1",
+                                     :published => params[:post]["published"] == "true",
                                      :date_published => ((params[:post]["published"] == "1") ? DateTime.now : nil))
       if params[:post][:keywords]
         post.tags.delete_all
