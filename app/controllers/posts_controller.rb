@@ -54,7 +54,7 @@ class PostsController < ApplicationController
       post.update_attributes(:title => params[:post][:title],
                                      :content => RedCloth.new(params[:post][:content]),
                                      :published => params[:post]["published"] == "true",
-                                     :date_published => ((params[:post]["published"] == "1") ? DateTime.now : nil))
+                                     :date_published => ((params[:post]["published"] == "true") ? DateTime.now : nil))
       if params[:post][:keywords]
         post.tags.delete_all
         names = params[:post][:keywords].split(",").map {|n| n.lstrip;n.rstrip;n.downcase}
