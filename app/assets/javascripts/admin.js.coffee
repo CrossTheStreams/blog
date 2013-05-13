@@ -28,7 +28,7 @@ $(document).ready ->
   update_post = (id) ->
     content = $('#edit-modal textarea#content').val()
     title = $('#edit-modal input#title').val()
-    published = $('#edit-modal #published').val()
+    published = $('#edit-modal #published').is(':checked') ? 1 : 0
     keywords = $('#edit-modal #keywords').val()
     $.ajax({
       url: '/api/posts/' + id + '/update'

@@ -7,7 +7,11 @@ class PostsController < ApplicationController
   end
 
   def index
-    respond_with Post.list(params[:page]).to_json
+    if current_user
+      respond_with Post.admin_list(params[:page]).to_json 
+    else
+      respond_with Post.list(params[:page]).to_json
+    end
   end
 
   def show
