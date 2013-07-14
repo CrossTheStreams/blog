@@ -20,8 +20,8 @@ class PostsController < ApplicationController
     current_user ? admin = true : admin = false
     render :json => {:id => post.id, 
                      :title => post.title, 
-                     :date_published => post.date_published.strftime("%a %b %d %Y"), 
-                     :content => RedCloth.new(post.content).to_html, 
+                     :date_published => (post.date_published.strftime("%a %b %d %Y") rescue ""), 
+                     :content => BlueCloth.new(post.content).to_html, 
                      :keywords => post.keywords.map {|k| k.name},
                      :next => post.next_link(admin),
                      :previous => post.prev_link(admin)}.to_json 
@@ -30,17 +30,15 @@ class PostsController < ApplicationController
   def create
     if params[:post]
       @post = Post.create(:title => params[:post][:title],
-                          :content => RedCloth.new(params[:post][:content]),
+                          :content => BlueCloth.new(params[:post][:content]).text,
                           :published => params[:post]["published"] == "1",
                           :date_published => ((params[:post]["published"] == "1") ? DateTime.now : nil))
-      if params[:keywords]
-        names = params[:keywords].split(",").map {|n| n.lstrip;n.rstrip;n.capitalize}
-        names.reject! {|n| n.blank?}
-        names.map do |name|
-          keyword = Keyword.find_or_create_by_name(:name => name)
-          tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => @post.id,
-                                                             :keyword_id => keyword.id)
-        end
+      params[:post][:keywords] = [] if params[:post][:keywords].nil?
+      post.tags.delete_all
+      keyword_ids = params[:post][:keywords].map(&:to_i)
+      keywords = Keyword.where(:id => keyword_ids)
+      keywords.map do |keyword| 
+        tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => post.id, :keyword_id => keyword.id)
       end
     end
     if @post && @post.save
@@ -52,18 +50,16 @@ class PostsController < ApplicationController
     post = Post.find_by_id(params[:id])
     if post
       post.update_attributes(:title => params[:post][:title],
-                                     :content => RedCloth.new(params[:post][:content]),
+                                     :content => BlueCloth.new(params[:post][:content]).text,
                                      :published => params[:post]["published"] == "true",
                                      :date_published => ((params[:post]["published"] == "true") ? DateTime.now : nil))
 
-      if params[:post][:keywords]
-        post.tags.delete_all
-        keyword_ids = params[:post][:keywords].map(&:to_i)
-        keywords = Keyword.where(:id => keyword_ids)
-        keywords.map do |keyword|
-          
-          tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => post.id, :keyword_id => keyword.id)
-        end
+      params[:post][:keywords] = [] if params[:post][:keywords].nil?
+      post.tags.delete_all
+      keyword_ids = params[:post][:keywords].map(&:to_i)
+      keywords = Keyword.where(:id => keyword_ids)
+      keywords.map do |keyword| 
+        tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => post.id, :keyword_id => keyword.id)
       end
       render :text => "Post successfully updated."
     else 
@@ -76,7 +72,7 @@ class PostsController < ApplicationController
     render :json => {:id => post.id, 
                      :title => post.title, 
                      :date_published => post.date_published.strftime("%a %b %d %Y"), 
-                     :content => RedCloth.new(post.content).to_html, 
+                     :content => post.content.html_safe, 
                      :keywords => post.keywords.map {|k| k.name}}.to_json 
   end
 
@@ -111,7 +107,7 @@ class PostsController < ApplicationController
         :id => p.id, 
         :date_published => p.date_published.nil? ? "Unpublished" : p.date_published.strftime("%a %b %d %Y"),
         :title => p.title,
-        :content => RedCloth.new(p.content).to_html,
+        :content => BlueCloth.new(p.content).to_html,
         :keywords => p.keywords
       } 
     }.to_json

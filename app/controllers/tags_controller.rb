@@ -4,11 +4,11 @@ class TagsController < ApplicationController
   def index
      if !current_user 
        tag_counts = Keyword.all.map do |k|
-         {"keyword" => k.name, "count" => Tag.includes(:post).where("posts.date_published is not null").where(:keyword_id => k.id).count}
+         {"keyword" => k.name, "count" => Tag.where("post_id is not NULL").includes(:post).where("posts.date_published is not null").where(:keyword_id => k.id).count}
        end 
     else
       tag_counts = Keyword.all.map do |k|
-        {"keyword" => k.name, "count" => Tag.includes(:post).where(:keyword_id => k.id).count}
+        {"keyword" => k.name, "count" => Tag.where("post_id is not NULL").includes(:post).where(:keyword_id => k.id).count}
       end 
     end
     

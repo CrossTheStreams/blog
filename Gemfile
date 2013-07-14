@@ -7,7 +7,7 @@ gem 'pg_search'
 gem 'backbone-on-rails'
 gem 'haml-rails'
 gem 'haml-contrib'
-gem 'RedCloth'
+gem 'bluecloth'
 gem 'devise'
 gem 'will_paginate', '~> 3.0'
 

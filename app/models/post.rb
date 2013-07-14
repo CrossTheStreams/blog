@@ -55,7 +55,7 @@ class Post < ActiveRecord::Base
            :id => p.id,
            :date_published => p.date_published.strftime("%a %b %d %Y"),
            :title => p.title,
-           :content => RedCloth.new(p.content).to_html,
+           :content => BlueCloth.new(p.content).to_html,
            :keywords => p.keywords
          }
       end
@@ -73,7 +73,7 @@ class Post < ActiveRecord::Base
            :id => p.id,
            :date_published => p.date_published ? p.date_published.strftime("%a %b %d %Y") : "Unpublished",
            :title => p.title,
-           :content => p.content,
+           :content => BlueCloth.new(p.content).to_html,
            :keywords => p.keywords,
            :published => p.published
          }
@@ -97,7 +97,7 @@ class Post < ActiveRecord::Base
         :id => p.id, 
         :date_published => p.date_published.strftime("%a %b %d %Y"),
         :title => p.title,
-        :content => RedCloth.new(p.content).to_html,
+        :content => BlueCloth.new(p.content).to_html,
         :keywords => p.keywords
       }
     end
