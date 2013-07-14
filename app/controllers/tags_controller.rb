@@ -2,7 +2,6 @@ class TagsController < ApplicationController
 
   # Render json for tags blog-wide
   def index
-
      if !current_user 
        tag_counts = Keyword.all.map do |k|
          {"keyword" => k.name, "count" => Tag.includes(:post).where("posts.date_published is not null").where(:keyword_id => k.id).count}

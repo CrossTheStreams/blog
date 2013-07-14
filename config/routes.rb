@@ -1,6 +1,9 @@
 Blog::Application.routes.draw do
 
   get 'admin' => 'admin#index'
+
+  match '/admin/keyword' => 'admin#keyword', :as => 'admin_keyword'
+
   
   get '/about' => 'static#about'
   get '/music' => 'static#music'

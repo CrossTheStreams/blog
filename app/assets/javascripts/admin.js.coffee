@@ -4,21 +4,39 @@
 #= require bootstrap-modal
 
 $(document).ready ->
-  #Fetching posts for editting in modal.
-  fetch_for_edit = (id) ->    
-    $.ajax({
-      url: '/api/posts/' + id + '/edit',
-      dataType: 'json',
+  #Fetching posts for editting in modal. 
+  fetch_for_edit = (id) ->
+    $.ajax
+      url: '/api/posts/' + id + '/edit'
+      dataType: 'json'
       success: (data) ->
-        $('#edit-modal #title').val(data.title);
-        $('#edit-modal #content').val(data.content);
-        $('#edit-modal #keywords').val(data.keywords.map (d) -> " " + d);
+        $('.keyword').remove()
+        console.log(data)
+        $('#edit-modal #title').val(data.title)
+        $('#edit-modal #content').val(data.content)
+        for keyword in data.keywords
+          keyword_div = $(jQuery.parseHTML('<div class="keyword" data-id="'+keyword.id+'"><span class="name">'+keyword.name+'</span><a class="close-keyword">  X</a></div>'))
+          $('#edit-modal .tags').append(keyword_div)
+        if data.published == true
+          $('#edit-modal #published')[0].checked = true
         $('#edit-modal form')[0].action = location.host + "/api/posts/" + id
         $('#update-btn').data().id = id
-        if data.published == true
-          $('#edit-modal #published')[0].checked = true;
-    });  
-  $('#new-btn').on('click', -> 
+      complete: (data) ->
+        $('.close-keyword').on('click', ->
+          $(this).parents('.keyword').remove())
+  $('input#keywords').on('keydown', -> 
+    if event.which == 13
+      name = $('#edit-modal input#keywords').val().trim()
+      $.ajax
+        url: '/admin/keyword'
+        data: {name: name}
+        success: (data) ->
+          $('#edit-modal input#keywords').val('')
+          keyword_div = $(jQuery.parseHTML('<div class="keyword" data-id="'+data['id']+'"><span class="name">'+name+'</span><a class="close-keyword">  X</a></div>'))
+          $('#edit-modal .tags').append(keyword_div).find('.close-keyword').on('click', -> 
+            $(this).parents('.keyword').remove())
+      )
+  $('#new-btn').on('click', ->
     $('#new-modal').modal('show'))
   $('.edit-btn').on('click', ->
     element_id = @.id.toString()
@@ -29,8 +47,9 @@ $(document).ready ->
     content = $('#edit-modal textarea#content').val()
     title = $('#edit-modal input#title').val()
     published = $('#edit-modal #published').is(':checked') ? 1 : 0
-    keywords = $('#edit-modal #keywords').val()
-    $.ajax({
+    keywords = ($(div).attr('data-id') for div in $('#edit-modal .keyword'))
+    console.log(keywords)
+    $.ajax
       url: '/api/posts/' + id + '/update'
       dataType: 'text'
       type: 'POST'
@@ -43,23 +62,20 @@ $(document).ready ->
             }
         }
       success: (data) ->
-        console.log();
         alert(data);
       failure: (data) ->
         alert(data)
-    }); 
   $('#update-btn').on('click', ->
     id = $('#update-btn').data().id
     update_post(id)
   )
   # Deleting posts from table 
   delete_post = (id) ->
-    $.ajax({
+    $.ajax
       url: '/api/posts/' + id 
       type: 'DELETE'
       success: (data) ->
         $('#post-id-' + data.id).fadeOut()
-    });
   $('.delete-btn').on('click', ->
     $('#destroy-modal').attr('data-post',$(this).attr('data-post'))
     $('#destroy-modal').modal('show')

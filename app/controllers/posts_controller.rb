@@ -55,14 +55,14 @@ class PostsController < ApplicationController
                                      :content => RedCloth.new(params[:post][:content]),
                                      :published => params[:post]["published"] == "true",
                                      :date_published => ((params[:post]["published"] == "true") ? DateTime.now : nil))
+
       if params[:post][:keywords]
         post.tags.delete_all
-        names = params[:post][:keywords].split(",").map {|n| n.lstrip;n.rstrip;n.downcase}
-        names.reject! {|n| n.blank?}
-        names.map do |name|
-          keyword = Keyword.find_or_create_by_name(:name => name)
-          tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => post.id,
-                                                             :keyword_id => keyword.id)
+        keyword_ids = params[:post][:keywords].map(&:to_i)
+        keywords = Keyword.where(:id => keyword_ids)
+        keywords.map do |keyword|
+          
+          tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => post.id, :keyword_id => keyword.id)
         end
       end
       render :text => "Post successfully updated."
@@ -81,13 +81,14 @@ class PostsController < ApplicationController
   end
 
   def edit
+
     post = Post.find(params[:id])
     render :json => {:id => post.id, 
                      :title => post.title, 
                      :published => post.published,
                      :date_published => post.date_published? ? post.date_published.strftime("%a %b %d %Y") : "", 
                      :content => post.content, 
-                     :keywords => post.keywords.map {|k| k.name}}.to_json 
+                     :keywords => post.keywords.map {|k| {:name => k.name, :id => k.id}}}.to_json 
   end
 
   def new

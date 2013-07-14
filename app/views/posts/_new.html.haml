@@ -9,7 +9,8 @@
       =f.label :content
       =f.text_area :content, :placeholder => "Use Textile markup."
       =f.label :tags
-      =text_field_tag 'keywords', nil, :placeholder => "Comma separated keywords for the post. Visualized on bubble charts."
+      .tags
+      =text_field_tag 'keywords', nil, :placeholder => "Enter new tags for the post."
       %br
       =f.label :publish, 'Publish?', :style => "float:left;margin-right:10px;"
       =f.check_box :published

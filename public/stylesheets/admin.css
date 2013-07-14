@@ -6,7 +6,27 @@
 #edit-modal {
   left: 40%;
   width: 800px;
-  height: 620px; }
+}
+
+.tags {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.close-keyword {
+ white-space: pre-wrap;
+ color:white;
+ cursor:pointer;
+}
+
+.keyword {
+  display: inline;
+  background-color: rgb(75, 140, 238);
+  padding: 7px 10px 7px 7px;
+  margin-right: 20px;
+  border-radius: 5px;
+  color: white;
+}
 
 .modal-body {
   max-height: 610px; }

@@ -22,12 +22,11 @@ group :test, :development do
   gem "spork-rails"
   gem 'jasminerice'
   gem 'capybara-webkit'
+  gem 'pry-rails'
+  gem 'pry-remote'
 end
 
-gem 'pry-rails'
-gem 'pry-remote'
 gem 'squeel'
-
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
