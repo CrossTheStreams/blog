@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def create
     if params[:post]
-      @post = Post.create(:title => params[:post][:title],
+      post = Post.create(:title => params[:post][:title],
                           :content => BlueCloth.new(params[:post][:content]).text,
                           :published => params[:post]["published"] == "1",
                           :date_published => ((params[:post]["published"] == "1") ? DateTime.now : nil))
@@ -41,9 +41,7 @@ class PostsController < ApplicationController
         tag = Tag.find_or_create_by_post_id_and_keyword_id(:post_id => post.id, :keyword_id => keyword.id)
       end
     end
-    if @post && @post.save
-      redirect_to admin_path
-    end
+    render :text => "Post successfully created" and return
   end
 
   def update

@@ -26,16 +26,17 @@ $(document).ready ->
           $(this).parents('.keyword').remove())
   $('input#keywords').on('keydown', -> 
     if event.which == 13
-      name = $('#edit-modal input#keywords').val().trim()
+      name = $(this).val().trim()
+      input = $(this)
       $.ajax
         url: '/admin/keyword'
         data: {name: name}
         success: (data) ->
-          $('#edit-modal input#keywords').val('')
+          $(this).val('')
           keyword_div = $(jQuery.parseHTML('<div class="keyword" data-id="'+data['id']+'"><span class="name">'+name+'</span><a class="close-keyword">  X</a></div>'))
-          $('#edit-modal .tags').append(keyword_div).find('.close-keyword').on('click', -> 
+          input.siblings(".tags").append(keyword_div).find('.close-keyword').on('click', -> 
             $(this).parents('.keyword').remove())
-      )
+  )
   $('#new-btn').on('click', ->
     $('#new-modal').modal('show'))
   $('.edit-btn').on('click', ->
@@ -43,14 +44,20 @@ $(document).ready ->
     post_id = element_id.match(/[0-9]+/)[0]
     fetch_for_edit(post_id)
     $('#edit-modal').modal('show'))
-  update_post = (id) ->
-    content = $('#edit-modal textarea#content').val()
-    title = $('#edit-modal input#title').val()
-    published = $('#edit-modal #published').is(':checked') ? 1 : 0
-    keywords = ($(div).attr('data-id') for div in $('#edit-modal .keyword'))
+  send_post = (id, action) ->
+    modal = ""
+    if action == "update"
+      modal = "#edit-modal"
+    else if action == "create"
+      modal = "#new-modal"
+      id = ""
+    content = $(modal+' textarea#content').val()
+    title = $(modal+' input#title').val()
+    published = $(modal+' #published').is(':checked') ? 1 : 0
+    keywords = ($(div).attr('data-id') for div in $(modal+' .keyword'))
     console.log(keywords)
     $.ajax
-      url: '/api/posts/' + id + '/update'
+      url: '/api/posts/' + action + "/" + id
       dataType: 'text'
       type: 'POST'
       data: {  'post' : {
@@ -65,9 +72,12 @@ $(document).ready ->
         alert(data);
       failure: (data) ->
         alert(data)
+  $('#create-btn').on('click', ->
+    send_post(undefined, "create")
+  )
   $('#update-btn').on('click', ->
     id = $('#update-btn').data().id
-    update_post(id)
+    send_post(id, "update")
   )
   # Deleting posts from table 
   delete_post = (id) ->

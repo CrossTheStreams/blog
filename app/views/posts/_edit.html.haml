@@ -7,10 +7,10 @@
       =label_tag :title
       =text_field_tag :title
       =label_tag :content
-      =text_area_tag :content, nil, :placeholder => "Use Textile markup."
+      =text_area_tag :content, nil, :placeholder => "Use Markdown" 
       =label_tag :tags
       .tags
-      =text_field_tag 'keywords', nil, :placeholder => "Enter new tags for the post."
+      =text_field_tag 'keywords', nil, :autocomplete => "off", :placeholder => "Enter new tags for the post."
       %br
       =label_tag :publish, 'Publish?', :style => "float:left;margin-right:10px;"
       =check_box_tag :published

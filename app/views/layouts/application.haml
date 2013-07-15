@@ -3,17 +3,13 @@
   %head
     %title Hautaulogy 
     = stylesheet_link_tag "application"
-    = stylesheet_link_tag "/stylesheets/solarized-dark"
+    = stylesheet_link_tag "/stylesheets/solarized_dark.css"
     = render :partial => "layouts/scripts"
     = javascript_include_tag "application"
     = javascript_include_tag "/javascripts/d3.v2.min"
-    = javascript_include_tag "/javascripts/rainbow.min"
-    = javascript_include_tag "/javascripts/ruby"
-    = javascript_include_tag "/javascripts/javascript.js"
+    = javascript_include_tag "/javascripts/highlight.pack.js"
     = csrf_meta_tags
   %body
-    :javascript
-      window.foo = {}
     .container
       .white-div
         %header{:class => "jumbotron subhead"}

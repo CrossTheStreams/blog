@@ -9,6 +9,6 @@ class Blog.Views.PostsIndex extends Backbone.View
 
   render: ->
     $(@el).html(@template(posts: @collection))
-    Rainbow.color()
+    $('pre code').each((i, e) -> hljs.highlightBlock(e))
     this
 

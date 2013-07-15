@@ -19,7 +19,8 @@ Blog::Application.routes.draw do
 
   scope 'api' do
     resources :posts
-    post '/posts/:id/update' => 'posts#update'
+    post '/posts/create/' => 'posts#create'
+    post '/posts/update/:id' => 'posts#update'
     get '/posts/search/:query(/:page)' => 'posts#search'
     get '/posts/tag/:keyword' => 'posts#tag'
     delete 'posts/:id' => 'posts#destroy'

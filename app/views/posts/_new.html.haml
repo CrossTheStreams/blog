@@ -4,18 +4,18 @@
     %h3 New Post 
   .modal-body
     =form_for @new_post do |f|
-      =f.label :title
-      =f.text_field :title
-      =f.label :content
-      =f.text_area :content, :placeholder => "Use Textile markup."
-      =f.label :tags
+      =label_tag :title
+      =text_field_tag :title
+      =label_tag :content
+      =text_area_tag :content, nil, :placeholder => "Use Markdown" 
+      =label_tag :tags
       .tags
-      =text_field_tag 'keywords', nil, :placeholder => "Enter new tags for the post."
+      =text_field_tag 'keywords', nil, :autocomplete => "off", :placeholder => "Enter new tags for the post."
       %br
-      =f.label :publish, 'Publish?', :style => "float:left;margin-right:10px;"
-      =f.check_box :published
+      =label_tag :publish, 'Publish?', :style => "float:left;margin-right:10px;"
+      =check_box_tag :published
       %p
-      =f.submit :class => "btn"
+      =submit_tag "Create Post", :id => "create-btn", :class => "btn", :type => "button"
 
 
 
