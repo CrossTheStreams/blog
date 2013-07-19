@@ -8,8 +8,8 @@
       - post.keywords.map do |keyword|
         =link_to keyword.name, '/tag/' + keyword.name 
     %h3 #{post.date_published.strftime("%a %b %d %Y").to_s rescue "Unpublished"}
-    .content
-      #{BlueCloth.new(post.content).to_html}
+    .content 
+      != BlueCloth.new(post.content).to_html
     %br    
     %noscript 
       %a{:href => "http://disqus.com/?ref_noscript"} Please enable JavaScript to view the

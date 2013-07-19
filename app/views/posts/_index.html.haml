@@ -1,7 +1,7 @@
 = content_tag :div, "Your javascripts are undefined. Plz turn on the javascripts.", :id => "flashnotice", :class => "alert"
 -# hacky and should be replaced, expect I'm lazy
 -unless request.path == "/search"
-  -posts.map do |post|
+  - posts.map do |post|
     .post{:id => "post-"+"#{post.id}"}
       %h1
         =link_to post.title, "/posts/"+post.id.to_s
@@ -11,6 +11,6 @@
           =link_to keyword.name, "/tag/"+keyword.name
       %h3 #{post.date_published.strftime("%a %b %d %Y").to_s rescue "Unpublished"} 
       .content
-        #{BlueCloth.new(post.content).to_html}
+        != BlueCloth.new(post.content).to_html
       %h3.comments-link
         =link_to "Post and Read Comments (Disqus comments require javascript)", "/posts/"+post.id.to_s
