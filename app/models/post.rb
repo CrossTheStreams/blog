@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
     if admin
       (Post.count.to_f/5.to_f).ceil
     else
-      (Post.where(:published => true).count.to_f/5.to_f).ceil
+      (Post.where(:published => true).count.to_f/CFG["posts_per_page"].to_f).ceil
     end
   end
 
@@ -45,10 +45,7 @@ class Post < ActiveRecord::Base
   end
    
   def self.list(page,for_json=true)
-    posts = Post.paginate(:per_page => 5,
-                          :page => page)
-                .where(:published => true)
-                .order('id DESC')
+    posts = Post.paginate(:per_page => CFG["posts_per_page"], :page => page).where(:published => true).order('id DESC')
     if for_json
       posts = posts.map do |p|  
          { 
@@ -64,12 +61,11 @@ class Post < ActiveRecord::Base
   end
 
   def self.admin_list(page,for_json=true)
-    posts = Post.paginate(:per_page => 20, :page => page)
-                .order('id DESC')
+    posts = Post.paginate(:per_page => CFG["posts_per_page"], :page => page).order('id DESC')
     if for_json
       posts = posts.map do |p|  
          
-            { 
+         { 
            :id => p.id,
            :date_published => p.date_published ? p.date_published.strftime("%a %b %d %Y") : "Unpublished",
            :title => p.title,

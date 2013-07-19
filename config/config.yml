@@ -1,3 +1,9 @@
-development:
+development: 
+  posts_per_page: 5
 test:
+  posts_per_page: 5
+staging:
+  posts_per_page: 5
 production:
+  posts_per_page: 5
+
