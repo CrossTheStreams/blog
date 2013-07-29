@@ -26,7 +26,6 @@ group :test, :development do
   gem 'pry-remote'
 end
 
-gem 'squeel'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
