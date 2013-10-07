@@ -44,7 +44,7 @@ $(document).ready(function() {
     console.log(url_param);
   }
 
-  //initialize_bubble_chart(500)
+  initialize_bubble_chart(500)
 
 });
 
