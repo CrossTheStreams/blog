@@ -1,8 +1,13 @@
 $(document).ready(function() {
 
-  // Regexes for search
+  $('#bubble-link').on('click',function(){
+    $('#bubble-modal').modal('toggle') 
+  })
+
+  // Regexes for url paths
 
   path = window.location.pathname
+  request_path = "http://"+document.location.host + "/"
 
   regexs = new Object ({
     'tag': new Object ({
@@ -31,17 +36,24 @@ $(document).ready(function() {
     url_param = "page/" + path.match(regexs.page.param_regex)
   }
   else if (regexs.search.url_regex.test(path)) {
-    url_param = path
+    url_param = path.replace(" ","%20")
   }
   else if (regexs.tag.url_regex.test(path)) {
-    url_param = "/keyword/" + path.replace(regexs.tag.url_regex,"");
+    url_param = "/keyword/" + path.replace(regexs.tag.url_regex,"%20");
 
     console.log(url_param);
   }
 
-  // Bubble chart stuff
+  initialize_bubble_chart()
 
-  var r = 320,
+});
+
+
+// Bubble chart stuff
+
+initialize_bubble_chart = function() {
+
+  var r = 500,
       format = d3.format(",d"),
       fill = "#1B9BFF"
 
@@ -54,7 +66,7 @@ $(document).ready(function() {
               .attr("width", r)
               .attr("height", r)
               .attr("class", "bubble");
- 
+
   d3.selectAll("svg").append("circle")
                  .attr("r", function(){ return r/2 })
                  .style("fill", "#333333")
@@ -63,7 +75,9 @@ $(document).ready(function() {
 
 
 
-  d3.json("/api/tags/" + url_param, function(json) {
+  //d3.json("/api/tags/" + url_param, function(json) {
+  d3.json("/api/tags/", function(json) {
+
     
     var node = vis.selectAll("g.node")
                   .data(bubble.nodes(classes(json))
@@ -73,7 +87,10 @@ $(document).ready(function() {
                   .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
     node.append("title")
-        .text(function(d) { return d.className + ": " + format(d.value); });
+        .text(function(d) { 
+          console.log(d)
+          return d.className + ": " + format(d.value); 
+        });
 
     node.append("circle")
         .attr("r", function(d) { return d.r * 0.9; })
@@ -106,7 +123,5 @@ $(document).ready(function() {
     recurse(null, root);
     return {children: classes};
   }
-});
 
-
-
+}

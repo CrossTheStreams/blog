@@ -5,6 +5,7 @@
 #feed {
   min-width:60%;
   min-height:800px;
+  margin-left: 0px;
 }
 
 .post {
@@ -21,12 +22,6 @@
 }
 .post h1 {
   font-size: 40px;
-}
-
-#side-stuff {
-  float: right;
-  margin-right: 32%;
-  top: 270px;
 }
 
 .pagination {

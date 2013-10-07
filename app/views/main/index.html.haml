@@ -1,12 +1,12 @@
-#blog-content.row.show-grid
-  .span9{:style => "width:60%;"}
+#blog-content.row-fluid.show-grid
+  .span12
     .pagination{:class => "#{ params[:controller] == 'static' ? 'hide' : '' }"}
       %ul#pagination-li
         %li.prev
           %a#prev{:href => '/page/prev'} <
         %li.next
           %a#next{:href => '/page/2'} >
-  #feed.span9
+  #feed.span12
     -# If the user doesn't have javascript, go to plan B.
     - @noscript_posts ||= []
     - if @noscript_posts.length == 1
@@ -14,6 +14,5 @@
       = render :partial => '/posts/show', :locals => {:post => post}
     - elsif @noscript_posts.length > 1
       = render :partial => '/posts/index', :locals => {:posts => @noscript_posts}
-  =render :partial => 'main/side_stuff'
 
           

@@ -20,11 +20,11 @@ class PostsController < ApplicationController
     current_user ? admin = true : admin = false
     render :json => {:id => post.id, 
                      :title => post.title, 
-                     :date_published => (post.date_published.strftime("%a %b %d %Y") rescue ""), 
+                     :date_published => (post.date_published.strftime("%a %b %d %Y") rescue ''), 
                      :content => BlueCloth.new(post.content).to_html, 
                      :keywords => post.keywords.map {|k| k.name},
                      :next => post.next_link(admin),
-                     :previous => post.prev_link(admin)}.to_json 
+                     :previous => post.prev_link(admin)}
   end
 
   def create
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
                                      :published => params[:post]["published"] == "true",
                                      :date_published => ((params[:post]["published"] == "true") ? DateTime.now : nil))
 
-      params[:post][:keywords] = [] if params[:post][:keywords].nil?
+      params[:post][:keywords] = [] if params[:post][:keywords].blank?
       post.tags.delete_all
       keyword_ids = params[:post][:keywords].map(&:to_i)
       keywords = Keyword.where(:id => keyword_ids)
@@ -69,9 +69,9 @@ class PostsController < ApplicationController
     post = Post.find_by_id(params[:id]).destroy
     render :json => {:id => post.id, 
                      :title => post.title, 
-                     :date_published => post.date_published.strftime("%a %b %d %Y"), 
+                     :date_published => (post.date_published.strftime("%a %b %d %Y") rescue ''), 
                      :content => post.content.html_safe, 
-                     :keywords => post.keywords.map {|k| k.name}}.to_json 
+                     :keywords => post.keywords.map {|k| k.name}}
   end
 
   def edit
@@ -80,9 +80,9 @@ class PostsController < ApplicationController
     render :json => {:id => post.id, 
                      :title => post.title, 
                      :published => post.published,
-                     :date_published => post.date_published? ? post.date_published.strftime("%a %b %d %Y") : "", 
+                     :date_published => (post.date_published.strftime("%a %b %d %Y") rescue ''), 
                      :content => post.content, 
-                     :keywords => post.keywords.map {|k| {:name => k.name, :id => k.id}}}.to_json 
+                     :keywords => post.keywords.map {|k| {:name => k.name, :id => k.id}}}
   end
 
   def new
@@ -90,7 +90,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    render :json => Post.blog_search(params[:query]).to_json
+    render :json => Post.blog_search(params[:query])
   end
 
   def tag
@@ -103,12 +103,12 @@ class PostsController < ApplicationController
     json_hash = posts.map {|p| 
       { 
         :id => p.id, 
-        :date_published => p.date_published.nil? ? "Unpublished" : p.date_published.strftime("%a %b %d %Y"),
+        :date_published => (post.date_published.strftime("%a %b %d %Y") rescue 'Unpublished'), 
         :title => p.title,
         :content => BlueCloth.new(p.content).to_html,
         :keywords => p.keywords
       } 
-    }.to_json
+    }
     render :json => json_hash
   end
 

@@ -44,13 +44,13 @@ h3 {
 }
 #bubble-cloud {
   height: 400px;
-  position:fixed;
 }
 
 .navbar {
   position: absolute;
   left: 0;
   right: 0;
+  padding-top: 10px;
   .container { 
     width: 100%;
   }
@@ -71,6 +71,15 @@ h3 {
   li {
     margin-right:30px;
   }
+}
+
+#bubble-link {
+  float: right;
+  margin-right: 75px;
+}
+#bubble-img {
+  width: 50px;
+  height: 50px;
 }
 
 ul.nav {
@@ -94,9 +103,10 @@ header{
 }
 .title {
   .character{
-    width:55px;
-    float:left;
-    margin-top:-3px;
+   width: 50px;
+   position: absolute;
+   top: -4px;
+   left: 10px; 
     img {
       width:70px;
     }
@@ -105,6 +115,7 @@ header{
   }
   }
   h1 {
+    margin-left:40px;
     font-size: 43px; 
     font-weight: bold;
     color: #d1e7d1;
@@ -153,16 +164,16 @@ input.search-query {
   margin-top: -1em;
 }
 
-.white-div {
+#title-div {
   position: fixed;
   top: 0px;
   background-color: #333333;
-  margin-top: -50px;
   left: 40px;
   padding-left: 30px;
   margin-left: -50px;
   width: 100%;
   min-width: 550px;
+  padding-bottom: 10px;
 }
 
 #content {
@@ -170,7 +181,7 @@ input.search-query {
   margin-left:auto;
   min-height: 900px;
   background-color: #D1E7D1;
-  padding: 105px 75px 0px 25px;
+  padding: 80px 75px 0px 25px;
   min-width: 80%;
   padding-bottom: 10%;
 }
@@ -178,7 +189,7 @@ input.search-query {
 
 .icons {
   float: right;
-  margin-top: -75px;
+  margin-top: -55px;
   width:200px;
   img {
     width: 50px;
@@ -216,4 +227,14 @@ h3.comments-link {
 
 .post #content a {
  text-decoration: underline;
+}
+
+//modal stuff
+
+#bubble-modal {
+  text-align: center;
+  background-color: transparent;
+}
+.modal-backdrop {
+  background-color:#929292;
 }
