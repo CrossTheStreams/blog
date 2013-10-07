@@ -44,16 +44,16 @@ $(document).ready(function() {
     console.log(url_param);
   }
 
-  initialize_bubble_chart()
+  initialize_bubble_chart(500)
 
 });
 
 
 // Bubble chart stuff
 
-initialize_bubble_chart = function() {
+initialize_bubble_chart = function(radius) {
 
-  var r = 500,
+  var r = radius,
       format = d3.format(",d"),
       fill = "#1B9BFF"
 
@@ -77,9 +77,7 @@ initialize_bubble_chart = function() {
 
   //d3.json("/api/tags/" + url_param, function(json) {
   d3.json("/api/tags/", function(json) {
-
-    mah_json_data = json;
-    
+ 
     var node = vis.selectAll("g.node")
                   .data(bubble.nodes(classes(json))
                   .filter(function(d) { return !d.children; }))
