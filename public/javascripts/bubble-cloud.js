@@ -78,6 +78,7 @@ initialize_bubble_chart = function() {
   //d3.json("/api/tags/" + url_param, function(json) {
   d3.json("/api/tags/", function(json) {
 
+    mah_json_data = json;
     
     var node = vis.selectAll("g.node")
                   .data(bubble.nodes(classes(json))
