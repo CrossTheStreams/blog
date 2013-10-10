@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   $('#bubble-link').on('click',function(){
     $('#bubble-modal').modal('toggle') 
   })
@@ -49,7 +48,7 @@ $(document).ready(function() {
     console.log(url_param);
   }
 
-  initialize_bubble_chart(500)
+  initialize_bubble_chart(700)
 
 });
 

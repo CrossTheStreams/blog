@@ -54,6 +54,7 @@
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash#{name}", :class => "alert"
         = yield
-      .modal.fade#bubble-modal{:tabindex => "-1", :role => "dialog", 'aria-labelledby'=>"myModalLabel", 'aria-hidden'=>"true", :style => 'display:none; border: 0px !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important;'}
-        #bubble-cloud
+      - if params["controller"] != 'admin'
+        .modal.fade#bubble-modal{:tabindex => "-1", :role => "dialog", 'aria-labelledby'=>"myModalLabel", 'aria-hidden'=>"true", :style => 'display:none; border: 0px !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; box-shadow: none !important;'}
+          #bubble-cloud
 
