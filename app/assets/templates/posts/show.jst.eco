@@ -1,7 +1,14 @@
 <div class="post" id="post-<%= @post.get('id') %>">
   <h1><a href="/posts/<%= @post.get('id') %>"><%= @post.get('title') %></a></h1>
   <div class="tags">
-    <strong>Tags:</strong>
+    <% if bubble_links: %>
+      <a class="bubble-link" href="#">
+        <img src='http://hautaulogy.s3.amazonaws.com/bubble_chart.png'></img>
+      </a>
+      <strong>:</strong> 
+    <% else :%>
+      <strong>Tags:</strong> 
+    <% end %>
     <%- @post.attributes.keywords.map (d) -> " " + "<a href='/tag/"+d+"'>"+d+"</a>" %>
   </div>
   <h3><%= @post.get('date_published') %></h3>

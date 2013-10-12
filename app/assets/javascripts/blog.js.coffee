@@ -12,8 +12,6 @@ $(document).ready ->
   input = $('#blog-search')
   input.focus()
 
-$('#tag-cloud').click (e) ->
-  e.preventDefault()
-  $(@).tab('show') 
+
 
 

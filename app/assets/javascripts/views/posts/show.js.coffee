@@ -11,3 +11,11 @@ class Blog.Views.PostsShow extends Backbone.View
     $('pre code').each((i, e) -> hljs.highlightBlock(e))
     @
 
+  events: {
+    'click .bubble-link' : 'bubbles_show' 
+  }
+
+  bubbles_show: ->
+    $('#bubble-modal').modal('toggle')
+
+

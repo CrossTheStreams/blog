@@ -1,9 +1,5 @@
 $(document).ready(function() {
 
-  $('#bubble-link').on('click',function(){
-    $('#bubble-modal').modal('toggle') 
-  })
-
   $('.modal').not('#bubble-cloud').on('click',function(){
     $('#bubble-modal').modal('toggle') 
   })

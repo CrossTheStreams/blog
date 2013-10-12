@@ -1,8 +1,16 @@
 <% for post in @posts.models: %>
   <div class="post" id="post-<%= post.get('id') %>">
     <h1><a href="/posts/<%= post.get('id') %>"><%= post.get('title') %></a></h1>
-    <div class="tags"><strong>Tags:</strong> 
-      <%- post.get('keywords').map (d) -> " " + "<a href='/tag/"+d.name+"'>"+d.name+"</a>" %>
+    <div class="tags">
+    <% if bubble_links: %>
+      <a class="bubble-link" href="#">
+        <img src='http://hautaulogy.s3.amazonaws.com/bubble_chart.png'></img>
+      </a>
+      <strong>:</strong> 
+    <% else :%>
+      <strong>Tags:</strong> 
+    <% end %>
+    <%- post.get('keywords').map (d) -> " " + "<a href='/tag/"+d.name+"'>"+d.name+"</a>" %>
     </div>
     <h3><%= post.get('date_published') %></h3>
     <div class="content"><%- post.get('content') %></div>
