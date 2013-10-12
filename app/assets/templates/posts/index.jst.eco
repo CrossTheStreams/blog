@@ -3,7 +3,7 @@
     <h1><a href="/posts/<%= post.get('id') %>"><%= post.get('title') %></a></h1>
     <div class="tags">
     <% if bubble_links: %>
-      <a class="bubble-link" href="#">
+      <a class="bubble-link">
         <img src='http://hautaulogy.s3.amazonaws.com/bubble_chart.png'></img>
       </a>
       <strong>:</strong> 
