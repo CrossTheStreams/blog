@@ -9,6 +9,8 @@ Blog::Application.routes.draw do
   get '/music' => 'static#music'
   get '/projects' => 'static#projects'
 
+  match '/resume' => 'main#resume'
+
   if Rails.env == "test"
     mount Jasminerice::Engine => '/jasmine'
   end
