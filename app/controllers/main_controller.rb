@@ -12,4 +12,8 @@ class MainController < ApplicationController
     render :template => 'main/index'
   end
 
+  def resume
+    redirect_to "http://codepen.io/CrossTheStreams/full/FeEIt" 
+  end
+
 end
