@@ -13,7 +13,7 @@ class MainController < ApplicationController
   end
 
   def resume
-    redirect_to "http://codepen.io/CrossTheStreams/full/FeEIt" 
+    render template: 'main/resume', layout: false
   end
 
 end
