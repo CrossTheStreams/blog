@@ -12,4 +12,8 @@ class MainController < ApplicationController
     render :template => 'main/index'
   end
 
+  def resume
+    redirect_to "http://hautaulogy.s3.amazonaws.com/resume.pdf"
+  end
+
 end
