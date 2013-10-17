@@ -1,9 +1,13 @@
 development: 
   posts_per_page: 5
+  domain: "localhost:3000"
 test:
   posts_per_page: 5
+  domain: "localhost:3000"
 staging:
   posts_per_page: 5
+  domain: "http://www.staging.hautaulogy.com"
 production:
   posts_per_page: 5
+  domain: "http://www.hautaulogy.com"
 

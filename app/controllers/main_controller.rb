@@ -12,8 +12,4 @@ class MainController < ApplicationController
     render :template => 'main/index'
   end
 
-  def resume
-    render template: 'main/resume', layout: false
-  end
-
 end
