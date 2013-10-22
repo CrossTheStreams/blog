@@ -1,11 +1,8 @@
+.modal {
+  left: 320px;
+  width: 90%;
+}
 #new-modal {
-  left: 40%;
-  width: 800px;
-} 
-
-#edit-modal {
-  left: 40%;
-  width: 800px;
 }
 
 .tags {
@@ -29,17 +26,13 @@
 }
 
 .modal-body {
-  max-height: 610px; }
+  max-height: 710px; }
 
 .modal.fade.in {
-  top: 5%; }
+  top: 2%; }
 
 input {
   width: 300px; }
-
-textarea {
-  width: 750px;
-  height: 300px; }
 
 #keywords {
   width: 600px; }
@@ -49,19 +42,12 @@ textarea {
 #admin-title h1 {
   float: left; }
 
-#analytics {
-  margin-left: 20px;
-  min-height: 500px; }
-  #analytics h1 {
-    margin-left: 20px; }
-
-#content {
-  padding: 135px 75px 0px 25px; }
-
 #content textarea {
+  width:98%;
   font-family: 'Monaco', courier, monospace;
   font-size: 13px;
   padding: 10px;
+  height:400px;
   min-height: 0px;
   background-color: #262626;
   color: #8ee2e3; }
