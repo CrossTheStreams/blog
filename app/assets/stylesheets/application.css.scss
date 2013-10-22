@@ -26,6 +26,14 @@ p {
  }
 }
 
+.post p {
+  margin-bottom: 1.4em;
+  margin-top: 1.4em;
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
+
 @import "bootstrap";
 
 body { 
