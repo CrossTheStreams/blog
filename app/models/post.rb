@@ -100,7 +100,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.search_by_keyword(keyword, admin=false)
-    posts = Keyword.find_by_name(keyword).posts rescue []
+    posts = Keyword.find_by_name(keyword).posts.order('id DESC') rescue []
     if !admin
       posts.reject! {|p| !p.date_published}
     end
