@@ -168,7 +168,9 @@ a:focus {
 }
 
 #blog-content { 
-  height: 100%;
+  height: 100% !important;
+  width: 97%;
+  margin-left: auto;
 }
 
 input.search-query {
@@ -243,10 +245,21 @@ h3.comments-link {
 
 //modal stuff
 
+.modal.fade.in {
+  top: 5%;
+}
+
 #bubble-modal {
   text-align: center;
   background-color: transparent;
 }
 .modal-backdrop {
   background-color:#929292;
+}
+
+// code, inline and blocks
+code {
+  background: #002b36;
+  color: #839496;
+  font-size: 13px;
 }
