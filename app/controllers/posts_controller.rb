@@ -100,15 +100,13 @@ class PostsController < ApplicationController
     else
       posts = Post.search_by_keyword(params[:keyword], true)
     end
-    json_hash = posts.map {|p| 
-      { 
-        :id => p.id, 
+    json_hash = posts.map do |p| 
+       {:id => p.id, 
         :date_published => (p.date_published.strftime("%a %b %d %Y") rescue ''), 
         :title => p.title,
         :content => BlueCloth.new(p.content).to_html,
-        :keywords => p.keywords
-      } 
-    }
+        :keywords => p.keywords} 
+    end
     render :json => json_hash
   end
 
