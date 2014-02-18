@@ -10,8 +10,9 @@
     = javascript_include_tag "/javascripts/d3.v2.min"
     = javascript_include_tag "/javascripts/highlight.pack.js"
     = csrf_meta_tags
-  :erb
-    <script type="text/javascript">document.write('<iframe src="http://adultcatfinder.com/embed/" width="320" height="430" style="position:fixed;bottom:0px;right:10px;z-index:100" frameBorder="0"></iframe>');</script>
+  -if !is_mobile_request?
+    :erb
+      <script type="text/javascript">document.write('<iframe src="http://adultcatfinder.com/embed/" width="320" height="430" style="position:fixed;bottom:0px;right:10px;z-index:100" frameBorder="0"></iframe>');</script>
   %body
     .container
       #title-div
